@@ -85,13 +85,20 @@ $('.alert').hide();
          
         	$('#registro').hide();
 			$('#exito').show();
+
+			
     
              }
           })
 
+		
+			
+
 		 console.log('ok')
 
 	})
+
+	
 
 
 

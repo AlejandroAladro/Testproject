@@ -33,6 +33,7 @@ $(document).ready(function() {
                 $('#datosperfil').hide();
                 $('.home').hide();
                 $('#listadmin').show();
+                $('#how').hide();
                 $('a').click(function() {
                     $('a').removeClass('active')
                     $(this).addClass('active')
@@ -79,6 +80,7 @@ $(document).ready(function() {
                         $('#createcurso').hide();
                         $('#tableusers').hide();
                         $('#tablecursos').show();
+                        
 
                         $.get("../php/cursos.php", function(data, estado) {
                             if (estado == "success") {
@@ -157,6 +159,7 @@ $(document).ready(function() {
                 $('#tablepreguntas').hide();
                 $('#alertpreguntaedit').hide();
                 $('#formularioeditpregunta').hide();
+                $('#how').hide();
 
                 $('a').click(function() {
                     $('a').removeClass('active');
@@ -175,6 +178,7 @@ $(document).ready(function() {
                         $('#tablepreguntas').hide();
                         $('#alertpreguntaedit').hide();
                         $('#formularioeditpregunta').hide();
+                        
 
                         $.get("../php/cursos.php", function(data, estado) {
                             if (estado == "success") {
@@ -280,6 +284,7 @@ $(document).ready(function() {
                         $('#createasignatura').hide();
                         $('#alertpreguntaedit').hide();
                         $('#formularioeditpregunta').hide();
+
 
                         $.get("../php/cursos.php", function(data, estado) {
                             if (estado == "success") {
@@ -483,6 +488,7 @@ $(document).ready(function() {
                 $('#alertnopreguntas').hide();
                 $('#cardresultado').hide();
                 $('#credencial').hide();
+                $('#how').hide();
 
 
                 $('a').click(function() {
@@ -555,6 +561,7 @@ $(document).ready(function() {
                 $('#alertnopreguntas').hide();
                 $('#cardresultado').hide();
                 $('#credencial').hide();
+                $('#how').show();
 
             } else if ($(this).html() == "Configuración") {
                 $('#contselectprofe').hide();
@@ -579,6 +586,7 @@ $(document).ready(function() {
                 $('#alertnopreguntas').hide();
                 $('#cardresultado').hide();
                 $('#credencial').hide();
+                $('#how').hide();
 
                 $('a').click(function() {
 
