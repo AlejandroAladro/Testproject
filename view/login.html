@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TestProject</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquerylib/jquery.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/validate.js"></script>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid mb-0 text-light">
+			<div class="container text-center">
+				<h1 class="display-4 font-weight-bold">Test Project</h1>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<div class="d-flex  flex-column">
+
+					
+				
+				<ul class="nav nav-tabs bg-light pt-2 ">
+					<li class="nav-item">
+				    <a class="nav-link " href="index.html">Home</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link " id="entrar" href="#">Entrar</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link " href="#">Regístrate</a>
+				  </li>
+				</ul>
+
+				<div class="col-6 mt-3 align-self-center" id="content">
+
+				<form method="POST" action="#" id="login" >
+					
+					 <div class="form-group ">
+					    <label>Usuario</label>
+					    <input type="text" class="form-control" name="usuario" id="user" placeholder="Introduce tu nombre de usuario">
+					    
+					  </div>
+					  <div class="form-group">
+					    <label>Password</label>
+					    <input type="password" name="password" class="form-control" id="pass" placeholder="Password">
+					  </div>
+
+					  <div class='alert alert-danger' id="alertlogin" role='alert'>Nombre o contraseña erroneos</div>
+					 
+					  <button type="submit" name="entrar" class="btn btn-primary btn-lg btn-block ">Entrar</button>
+					  
+				</form>
+
+				<form method="POST" action="#" id="registro">
+					
+					 <div class="form-group"> 
+					    <label>Nombre</label>
+					    <input type="text" onblur="valnom()" id="nomb" name="nombre" class="form-control"  placeholder="Nombre" required>
+					  </div>
+					   <div class='alert alert-danger' id="alertnombre" role='alert'>Nombre erroneo solo alfabeticos sin espacio al final</div>
+
+					  <div class="form-group">
+					    <label>Apellido1</label>
+					    <input type="text" id="ape1" onblur="valape()" name="apellido1" class="form-control"   placeholder="Apellido1" required>
+					  </div>
+
+					  <div class='alert alert-danger' id="alertape1" role='alert'>Apellido erroneo solo alfabeticos sin espacio al final</div>
+
+					  <div class="form-group">
+					    <label>Apellido2</label>
+					    <input type="text" name="apellido2" id="ape2" onblur="valape2()" class="form-control"   placeholder="Apellido2" required>
+					    
+					  </div>
+					  <div class='alert alert-danger' id="alertape2" role='alert'>Apellido erroneo solo alfabeticos sin espacio al final</div>
+
+
+					  <div class="form-group">
+					    <label>DNI</label>
+					    <input type="text" name="dni" onblur="valdni()"  id="dni" class="form-control"   placeholder="DNI" required>
+					  </div>
+					  <div class='alert alert-danger' id="alertdni" role='alert'>DNI erroneo comprueba que tenga 8 digitos y una letra al final</div>
+
+
+					  <div class="form-group">
+					    <label>Email</label>
+					    <input type="email" name="email" id="email" onblur="valemail()" class="form-control"   placeholder="Email" required>
+					  </div>
+					   <div class='alert alert-danger' id="alertemail" role='alert'>Email erroneo comprueba que tenga una @, un '.' y un subdominio valido</div>
+					   <div class='alert alert-danger' id="alertemail2" role='alert'>Este email ya existe, prueba con otro</div>
+
+
+
+
+
+					  <div class="form-group">
+					    <label>Username</label>
+					    <input type="text" name="usuario" class="form-control" id="userr" onblur="valuser()"  placeholder="Nombre de usuario" required>
+					    
+					  </div>
+					  <div class='alert alert-danger' id="alertuser" role='alert'>Este usuario ya existe, prueba con otro</div>
+
+					  <div class="form-group">
+					    <label>Password</label>
+					    <input type="password" name="password" class="form-control" id="password1"  placeholder="Password" required>
+					  </div>
+					  <div class="form-group">
+					    <label>Repeat Password</label>
+					    <input type="password" name="password2" class="form-control" onkeyup="valpass()" id="password2" placeholder="Repeat Password" required>
+					  </div>
+					  <div class='alert alert-danger' id="alertpassword" role='alert'>Las contraseñas deben coincidir</div>
+					 
+					  <button type="submit"  name="registrarse" class="btn btn-primary btn-lg btn-block">Registrarse</button>
+					  
+				</form>
+
+				<div class='alert alert-success' id="exito" role='alert'>Se ha registrado con exito.</div>
+				</div>
+
+
+				
+
+
+
+				</div>
+			</div>
+		</div>
+
+			<div class="row justify-content-center fixed-bottom home" id="footer">
+				<div class="justify-content-center" >
+					 <footer class="my-5 text-muted d-flex flex-column ">
+					      <p class="mb-1  text-center">© 2018-2019 Alejandro Aladro</p>
+					       <ul class="list-inline">
+						      <li class="list-inline-item"> <a href="terms.html">Privacidad</a> </li>
+						       <li class="list-inline-item"> <a href="terms.html"> Términos y condiciones</a> </li>
+						       <li class="list-inline-item"> <a href="terms.html">Soporte</a> </li>
+					       </ul>
+					  </footer>
+				</div>
+			</div>
+
+
+	</div>
+	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

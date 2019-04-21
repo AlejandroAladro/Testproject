@@ -1,0 +1,16 @@
+body{
+	height: 100%;
+}
+
+.jumbotron{
+	background-image: url(../images/fondo2.jpg);
+		}
+
+.alert,#credencial,#createcurso,#datosperfil,#cambiarpass,.lista,.tablaadmin,.profesor,.alumno,.extra,#contselectprofe,#createasignatura,#selectcursopregunt,#selectasig,#formulariopreguntas,#seleceditpregunasig,#selecteditpreguncurs,#tablepreguntas,#formularioeditpregunta,#formularioexamen,#cardresultado{
+	display: none;
+}
+
+
+
+
+
