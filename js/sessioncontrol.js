@@ -7,11 +7,11 @@ $(document).ready(function(){
 	$('#config').hide();
 	
 
-
+//############################## funcion ajax que comprueba que tipo de usuario esta conectado  ############################################################
 	$.get("../php/sessioncontrol.php",function(data,estado){
 		var respuesta = data
 		
-
+//depende de que tipo de usuario se encuentre conectado se muestraa un menu u otro ###########
 		if(respuesta == "nosesion"){
 			$('#botonesmenu').show()
 		}else if(respuesta == "alumno"){
@@ -32,6 +32,8 @@ $(document).ready(function(){
 
 	})
 
+//##########################################################################################
+//############################# funcion ajax que no rellena el boton  con el nombre del usuario conectado #############################################################
 
 	$.get("../php/usuarioactive.php",function(data,estado){
 		if(estado=="success"){
@@ -42,3 +44,5 @@ $(document).ready(function(){
 	})
 
 })
+
+//##########################################################################################
