@@ -15,15 +15,20 @@ $(document).ready(function() {
                 }
             });
         })
-        $('#botonnewcurso').click(function() {
-            $('#createcurso').toggle();
-            $('#alercur1').hide();
-        })
 
-        $('#botonnewasignatura').click(function() {
-            $('#createasignatura').toggle();
-            $('#alertasig1').hide();
-        })
+        //#################################################################################################
+        //################# botones antes de hacer los modal de los formularios ###########################
+
+        // $('#botonnewcurso').click(function() {
+        //     $('#createcurso').toggle();
+        //     $('#alercur1').hide();
+        // })
+
+        // $('#botonnewasignatura').click(function() {
+        //     $('#createasignatura').toggle();
+        //     $('#alertasig1').hide();
+        // })
+        //#################################################################################################
 
         $('a').click(function() {
 
@@ -523,7 +528,7 @@ $(document).ready(function() {
                                 $.post("../php/asignaturas.php", datos, function(data, estado) {
                                     if (estado == "success") {
                                         $('#tableasignaturas').show();
-                                        $('#tableasignaturas').children('tfoot').hide();
+                                        $('#botonnewasignatura').hide();
                                         $('#tableasignaturas').children('tbody').empty();
                                         $.each(data, function(indice, valor) {
                                             $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/getquestions.php' method='post' id='getquestions'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-warning ml-5'>Examen Aleatorio</button></form></td><td><button type='submit' class='btn btn-success'>Mostrar Fijados</button></td></tr>")
@@ -807,7 +812,7 @@ $(document).ready(function() {
                                         }
                                         $.post("../php/getanswers2.php", dato, function(data, estado) {
                                             if (estado == "success") {
-                                                
+                                                $('#contenidoexamen').append("<hr>")
                                                 $('#contenidoexamen').append("<div class='form-group mt-3'><label>-" + valor.TEXTO_P + "</label>")
                                                 $.each(data, function(indice, valor) {
                                                     $('#contenidoexamen').append("<div class='form-check my-3'><input class='form-check-input' type='radio' name='radio" + contador + "' value='" + valor.ID_RESPUESTA + "'><label class='form-check-label'>" + valor.TEXTO_R + "</label></div>")
