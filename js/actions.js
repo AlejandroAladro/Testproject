@@ -807,7 +807,7 @@ $(document).ready(function() {
                                         }
                                         $.post("../php/getanswers2.php", dato, function(data, estado) {
                                             if (estado == "success") {
-                                                
+                                                $('#contenidoexamen').append("<hr>")
                                                 $('#contenidoexamen').append("<div class='form-group mt-3'><label>-" + valor.TEXTO_P + "</label>")
                                                 $.each(data, function(indice, valor) {
                                                     $('#contenidoexamen').append("<div class='form-check my-3'><input class='form-check-input' type='radio' name='radio" + contador + "' value='" + valor.ID_RESPUESTA + "'><label class='form-check-label'>" + valor.TEXTO_R + "</label></div>")
