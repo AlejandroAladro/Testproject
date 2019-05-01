@@ -19,8 +19,13 @@ $(document).ready(function() {
         //#################################################################################################
         //################# botones antes de hacer los modal de los formularios ###########################
 
+<<<<<<< HEAD
         //  $('#botonnewcurso').click(function() {
         //      $('#createcurso').toggle();
+=======
+        // $('#botonnewcurso').click(function() {
+        //     $('#createcurso').toggle();
+>>>>>>> bb7c366041b405f42b60597e6abc662c3b457eef
         //     $('#alercur1').hide();
         // })
 
