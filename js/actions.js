@@ -15,15 +15,20 @@ $(document).ready(function() {
                 }
             });
         })
-        $('#botonnewcurso').click(function() {
-            $('#createcurso').toggle();
-            $('#alercur1').hide();
-        })
 
-        $('#botonnewasignatura').click(function() {
-            $('#createasignatura').toggle();
-            $('#alertasig1').hide();
-        })
+        //#################################################################################################
+        //################# botones antes de hacer los modal de los formularios ###########################
+
+        //  $('#botonnewcurso').click(function() {
+        //      $('#createcurso').toggle();
+        //     $('#alercur1').hide();
+        // })
+
+        // $('#botonnewasignatura').click(function() {
+        //     $('#createasignatura').toggle();
+        //     $('#alertasig1').hide();
+        // })
+        //#################################################################################################
 
         $('a').click(function() {
 
@@ -31,6 +36,7 @@ $(document).ready(function() {
                 $('#listconfig').hide();
                 $('#cambiarpass').hide();
                 $('#datosperfil').hide();
+                $('#alertcurso1').hide();
                 $('.home').hide();
                 $('#listadmin').show();
                 $('#how').hide();
@@ -80,6 +86,7 @@ $(document).ready(function() {
                         $('#createcurso').hide();
                         $('#tableusers').hide();
                         $('#tablecursos').show();
+                        $('#alertcurso1').hide();
                         
 
                         $.get("../php/cursos.php", function(data, estado) {
@@ -122,13 +129,16 @@ $(document).ready(function() {
                                     $.get("../php/cursos.php", function(data, estado) {
                                         if (estado == "success") {
                                             $('#tablecursos').children('tbody').empty();
+
                                             $.each(data, function(indice, valor) {
                                                 $('tbody').append("<tr><td>" + valor.COD_CURSO + "</td><td>" + valor.NOMBRE_CURSO + "</td><td><form action='../php/deletecurso.php' method='post' id='eliminarcurso'><input type='hidden' name='codigo' value='" + valor.COD_CURSO + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td></tr>")
 
                                             })
 
                                         }
+
                                     })
+
                                     if (respuesta == 1) {
                                         $('#alertcurso1').show();
                                     } else {
@@ -160,6 +170,11 @@ $(document).ready(function() {
                 $('#alertpreguntaedit').hide();
                 $('#formularioeditpregunta').hide();
                 $('#how').hide();
+                $('#selectfixexamasig').hide();
+                $('#selectcursofixexamen').hide();
+                $('#tablepreguntasexam').hide();
+                        $('#elrtfixedexam1').hide();
+                        $('#elrtfixedexam2').hide();
 
                 $('a').click(function() {
                     $('a').removeClass('active');
@@ -178,6 +193,11 @@ $(document).ready(function() {
                         $('#tablepreguntas').hide();
                         $('#alertpreguntaedit').hide();
                         $('#formularioeditpregunta').hide();
+                        $('#selectcursofixexamen').hide();
+                        $('#selectfixexamasig').hide();
+                        $('#tablepreguntasexam').hide();
+                        $('#elrtfixedexam1').hide();
+                        $('#elrtfixedexam2').hide();
                         
 
                         $.get("../php/cursos.php", function(data, estado) {
@@ -203,7 +223,7 @@ $(document).ready(function() {
                                     $('#tableasignaturas').show();
                                     $('#tableasignaturas').children('tbody').empty();
                                     $.each(data, function(indice, valor) {
-                                        $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/deletasig.php' method='post' id='eliminarasig'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td></tr>")
+                                        $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/deletasig.php' method='post' id='eliminarasig'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td><td></td></tr>")
                                     })
 
                                 }
@@ -227,7 +247,7 @@ $(document).ready(function() {
                                             $('#tableasignaturas').show();
                                             $('#tableasignaturas').children('tbody').empty();
                                             $.each(data, function(indice, valor) {
-                                                $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/deletasig.php' method='post' id='eliminarasig'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td></tr>")
+                                                $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/deletasig.php' method='post' id='eliminarasig'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td><td></td></tr>")
                                             })
 
                                         }
@@ -265,7 +285,7 @@ $(document).ready(function() {
                                             $('#tableasignaturas').show();
                                             $('#tableasignaturas').children('tbody').empty();
                                             $.each(data, function(indice, valor) {
-                                                $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/deletasig.php' method='post' id='eliminarasig'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td></tr>")
+                                                $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/deletasig.php' method='post' id='eliminarasig'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td><td></td></tr>")
                                             })
                                         }
                                     });
@@ -284,6 +304,11 @@ $(document).ready(function() {
                         $('#createasignatura').hide();
                         $('#alertpreguntaedit').hide();
                         $('#formularioeditpregunta').hide();
+                        $('#selectcursofixexamen').hide();
+                        $('#selectfixexamasig').hide();
+                        $('#tablepreguntasexam').hide();
+                        $('#elrtfixedexam1').hide();
+                        $('#elrtfixedexam2').hide();
 
 
                         $.get("../php/cursos.php", function(data, estado) {
@@ -340,6 +365,11 @@ $(document).ready(function() {
                         $('#tablepreguntas').hide();
                         $('#alertpreguntaedit').hide();
                         $('#formularioeditpregunta').hide();
+                        $('#selectcursofixexamen').hide();
+                        $('#selectfixexamasig').hide();
+                        $('#tablepreguntasexam').hide();
+                        $('#elrtfixedexam1').hide();
+                        $('#elrtfixedexam2').hide();
 
                         $('#selecteditpreguncurs').show();
 
@@ -474,8 +504,113 @@ $(document).ready(function() {
                                 }
                             });
                         })
-                    } //ende else id editar pregunta
-                })
+                    }else if($(this).html()=="Fijar Exámen") {
+
+                        $('#contselectprofe').hide();
+                        $('#tableasignaturas').hide();
+                        $('#createasignatura').hide();
+                        $('#selectcursopregunt').hide();
+                        $('#selectasig').hide();
+                        $('#formulariopreguntas').hide();
+                        $('#alertpregunta').hide();
+                        $('#seleceditpregunasig').hide();
+                        $('#tablepreguntas').hide();
+                        $('#alertpreguntaedit').hide();
+                        $('#formularioeditpregunta').hide();
+                        $('#selecteditpreguncurs').hide();
+                        $('#selectcursofixexamen').show();
+                        $('#selectfixexamasig').hide();
+                        $('#tablepreguntasexam').hide();
+                        $('#elrtfixedexam1').hide();
+                        $('#elrtfixedexam2').hide();
+
+                        $.get("../php/cursos.php", function(data, estado) {
+                            if (estado == "success") {
+                                $('#selectcursofixedexamen').empty();
+                                $('#selectcursofixedexamen').append("<option selected='selected'>Seleccione Curso</option>");
+
+                                $.each(data, function(indice, valor) {
+                                    $('#selectcursofixedexamen').append("<option value='" + valor.COD_CURSO + "'>" + valor.COD_CURSO + "</option>")
+                                });
+
+                            }
+                        });
+
+                         $('#selectcursofixedexamen').change(function() {
+                            $('#selectfixexamasig').show();
+                            $('#elrtfixedexam1').hide();
+                            $('#tablepreguntasexam').hide();
+                            $('#elrtfixedexam2').hide();
+                            var codigo = $(this).val();
+                            var datos = {
+                                "codigo": codigo
+                            };
+
+                            $.post("../php/asignaturas.php", datos, function(data, estado) {
+                                if (estado == "success") {
+
+                                    $('#selectfixedexamasig').empty();
+                                    $('#selectfixedexamasig').append("<option selected='selected'>Seleccione Asignatura</option>");
+
+                                    $.each(data, function(indice, valor) {
+                                        $('#selectfixedexamasig').append("<option value='" + valor.COD_ASIGNATURA + "'>" + valor.COD_ASIGNATURA + "</option>")
+                                    })
+                                }
+                            });
+                        })
+
+                           $('#selectfixedexamasig').change(function() {
+                            $('#tablepreguntasexam').show();
+                            $('#elrtfixedexam1').hide();
+                             $('#elrtfixedexam2').hide();
+                            var codigo = $(this).val();
+                            $('#codasigfixex').val(codigo);
+                            var datos = {
+                                "codigo": codigo
+                            };
+
+                            $.post("../php/questions.php", datos, function(data, estado) {
+                                if (estado == "success") {
+                                    $('#tablepreguntasexam').children('tbody').empty();
+
+                                    $.each(data, function(indice, valor) {
+                                        $('#tablepreguntasexam').children('tbody').append("<tr><td>" + valor.ID_PREGUNTA + "</td><td>" + valor.TEXTO_P + "</td><td><div class='form-check'><input class='form-check-input' type='checkbox' value='"+valor.ID_PREGUNTA+"' name='idpreguntas[]'></div></td></tr>");
+                                    })
+                                }
+                            })
+                        })
+
+
+                           $('#formfixedexam').submit(function(){
+                            event.preventDefault();
+
+                                  $.ajax({
+                                        type: "POST",
+                                        url: "../php/fixedexam.php",
+                                        data: $(this).serialize(),
+                                        success: function(respuesta) {
+                                                
+                                                if(respuesta == 0){
+                                                    $('#tablepreguntasexam').hide();
+                                                    $('#elrtfixedexam1').show();
+                                                    $('#elrtfixedexam2').hide();
+                                                }else{
+                                                    $('#elrtfixedexam1').hide();
+                                                    $('#elrtfixedexam2').show();
+                                                }
+                                        }
+                                    })
+                           })
+
+
+
+
+
+
+
+                    }//end of fixed exam
+
+                })//end of if opciones
 
                 //###########################################################################################################################################
             } else if ($(this).html() == 'Alumno') {
@@ -523,7 +658,7 @@ $(document).ready(function() {
                                 $.post("../php/asignaturas.php", datos, function(data, estado) {
                                     if (estado == "success") {
                                         $('#tableasignaturas').show();
-                                        $('#tableasignaturas').children('tfoot').hide();
+                                        $('#botonnewasignatura').hide();
                                         $('#tableasignaturas').children('tbody').empty();
                                         $.each(data, function(indice, valor) {
                                             $('#tableasignaturas').children('tbody').append("<tr><td>" + valor.COD_ASIGNATURA + "</td><td>" + valor.NOMBRE_ASIG + "</td><td><form action='../php/getquestions.php' method='post' id='getquestions'><input type='hidden' name='codigo' value='" + valor.COD_ASIGNATURA + "'><button type='submit' class='btn btn-warning ml-5'>Examen Aleatorio</button></form></td><td><button type='submit' class='btn btn-success'>Mostrar Fijados</button></td></tr>")
@@ -566,6 +701,7 @@ $(document).ready(function() {
             } else if ($(this).html() == "Configuración") {
                 $('#contselectprofe').hide();
                 $('#listadmin').hide();
+                $('#selectfixexamasig').hide();
                 $('#listprofesor').hide();
                 $('.home').hide();
                 $('#createcurso').hide();
@@ -587,6 +723,10 @@ $(document).ready(function() {
                 $('#cardresultado').hide();
                 $('#credencial').hide();
                 $('#how').hide();
+                $('#selectcursofixexamen').hide();
+                $('#tablepreguntasexam').hide();
+                $('#elrtfixedexam1').hide();
+                $('#elrtfixedexam2').hide();
 
                 $('a').click(function() {
 
@@ -807,7 +947,7 @@ $(document).ready(function() {
                                         }
                                         $.post("../php/getanswers2.php", dato, function(data, estado) {
                                             if (estado == "success") {
-                                                
+                                                $('#contenidoexamen').append("<hr>")
                                                 $('#contenidoexamen').append("<div class='form-group mt-3'><label>-" + valor.TEXTO_P + "</label>")
                                                 $.each(data, function(indice, valor) {
                                                     $('#contenidoexamen').append("<div class='form-check my-3'><input class='form-check-input' type='radio' name='radio" + contador + "' value='" + valor.ID_RESPUESTA + "'><label class='form-check-label'>" + valor.TEXTO_R + "</label></div>")
