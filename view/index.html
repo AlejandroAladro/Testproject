@@ -1,359 +1,327 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>TestProject</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script src="../js/jquerylib/jquery.js"></script>
-	<script src="../js/sessioncontrol.js"></script>
-	<script src="../js/actions.js"></script>
-	<script src="../js/validate.js"></script>
-</head>
-<body>
-
-<!-- ##################################################### MODAL CUANDO CAMBIAS LOS PERMISOS DE USUARIO ############################################################-->	
-	<div class="modal fade" id="modaltransition" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        <h5>Tipo de usuario cambiado con éxito</h5>
-	      </div>
-	      <div class="modal-footer">
-	     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-<!-- ###############################################################################################################################################################-->	
-
-
-<!-- ###############################################################################################################################################################-->	
-	<div class="container main"><!-- CONTENDOR DE LA PAGINA -->
-
-<!-- ########################## CABECERA DE LA PAGINA ########################################-->	
+	<head>
+		<meta charset="UTF-8">
+		<title>TestProject</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<script src="../js/jquerylib/jquery.js"></script>
+		<script src="../js/sessioncontrol.js"></script>
+		<script src="../js/actions.js"></script>
+		<script src="../js/validate.js"></script>
+	</head>
+	<body>
+		<!-- ##################################################### MODAL CUANDO CAMBIAS LOS PERMISOS DE USUARIO ############################################################-->
+		<div class="modal fade" id="modaltransition" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h5>Tipo de usuario cambiado con éxito</h5>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ###############################################################################################################-->
+		<!-- ##########################################################################################################-->
+		<div class="container main"><!-- CONTENDOR DE LA PAGINA -->
+		<!-- ########################## CABECERA DE LA PAGINA ########################################-->
 		<div class="jumbotron jumbotron-fluid mb-0 text-light ">
 			<div class="container text-center">
 				<h1 class="display-4 font-weight-bold">Test Project</h1>
 			</div>
 		</div>
-<!-- ###############################################################################################################################################################-->	
-<!-- ###############################################################################################################################################################-->	
-			
-			<div class="row"><!-- ROW PARA EL MENU HORIZONTAL -->
-				<div class="col">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					    <span class="navbar-toggler-icon"></span>
-					  </button>
-
-<!-- ################################ LISTA MENU HORIZONTAL #########################################################-->	
-					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-					    <ul class="navbar-nav mr-auto" id="listamenu">
-					      <li class="nav-item ">
-					        <a class="nav-link " href="index.html">Home</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" href="#">Cómo Funciona</a>
-					      </li>
-					       <li class="nav-item alumno ">
-					        <a class="nav-link" href="#">Alumno</a>
-					      </li>
-					      <li class="nav-item profesor">
-					        <a class="nav-link" href="#">Opciones</a>
-					      </li>
-					      <li class="nav-item extra">
-					        <a class="nav-link" href="#">Administrar</a>
-					      </li>    
-					    </ul>					    
-					  </div>
-
-					  <div id="botonesmenu">
-					  	<a href="login.html" class='btn btn-outline-primary mr-3'>Entrar o Registrarse</a> 
-					  </div>
-<!-- ###############################################################################################################################################################-->	
-<!-- ######################################### BOTON DE USUARIO CONECTADO #####################################################################-->	
-					  		<div class="btn-group" role="group" id="config">
-							    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-							    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-									<div class="d-flex align-items-baseline ml-2">
-										<i class="fas fa-cog"></i>
-										<a class="dropdown-item"  href="#" >Configuración</a>
-									</div>
-									<div class="d-flex align-items-baseline ml-2">
-								    	<i class="fas fa-power-off"></i>
-						 				<a class="dropdown-item" href="../php/logout.php">Cerrar Sesión</a>
-									</div>
-							    </div>
-						  </div>
-<!-- ###############################################################################################################################################################-->	
-					</nav>
+		<!-- #################################################################################################-->
+		<!-- ########################################################################################################-->
+		
+		<div class="row"><!-- ROW PARA EL MENU HORIZONTAL -->
+		<div class="col">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- ################################ LISTA MENU HORIZONTAL #########################################################-->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto" id="listamenu">
+						<li class="nav-item ">
+							<a class="nav-link " href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Cómo Funciona</a>
+						</li>
+						<li class="nav-item alumno ">
+							<a class="nav-link" href="#">Alumno</a>
+						</li>
+						<li class="nav-item profesor">
+							<a class="nav-link" href="#">Opciones</a>
+						</li>
+						<li class="nav-item extra">
+							<a class="nav-link" href="#">Administrar</a>
+						</li>
+					</ul>
 				</div>
-			</div><!-- END ROW MENU -->
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->		
-<!-- ############################## CONTENIDO DEL HOME ############################################################################-->	
-			<div class="row justify-content-center home">
-				<div class="d-flex justify-content-center">
-					<div class=" col-10 d-flex justify-content-center flex-column home mt-4">
-						<h1 class="text-center">Proyecto 2ºDAW</h1>
-						<div class=" d-flex justify-content-center">
-							<img src="../images/logonaranco.png" alt="logonaranco">
+				<div id="botonesmenu">
+					<a href="login.html" class='btn btn-outline-primary mr-3'>Entrar o Registrarse</a>
+				</div>
+				<!-- #######################################################################################################-->
+				<!-- ######################################### BOTON DE USUARIO CONECTADO ####################################################-->
+				<div class="btn-group" role="group" id="config">
+					<button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+					<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+						<div class="d-flex align-items-baseline ml-2">
+							<i class="fas fa-cog"></i>
+							<a class="dropdown-item"  href="#" >Configuración</a>
+						</div>
+						<div class="d-flex align-items-baseline ml-2">
+							<i class="fas fa-power-off"></i>
+							<a class="dropdown-item" href="../php/logout.php">Cerrar Sesión</a>
+						</div>
+					</div>
+				</div>
+				<!-- #######################################################################################################-->
+			</nav>
+		</div>
+		</div><!-- END ROW MENU -->
+		<!-- ####################################################################################################-->
+		<!-- #######################################################################################################-->
+		<!-- ############################## CONTENIDO DEL HOME ############################################################################-->
+		<div class="row justify-content-center home">
+			<div class="d-flex justify-content-center">
+				<div class=" col-10 d-flex justify-content-center flex-column home mt-4">
+					<h1 class="text-center">Proyecto 2ºDAW</h1>
+					<div class=" d-flex justify-content-center">
+						<img src="../images/logonaranco.png" alt="logonaranco">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- #############################################################################################-->
+		<!-- ###################################################################################################-->
+		<!-- ##################### CONTENEDOR DE VIDEOS SEGUNDA PESTAÑA DEL MENU ############################################################-->
+		<div id="how">
+			<div class="row d-flex px-5" >
+				<div class=" col-12 col-md-6 col-lg-4 mt-5">
+					<p class="h5 mb-4">Registro Alumno</p>
+					<div class="embed-responsive embed-responsive-16by9 z-depth-5">
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/l8cD6Qx7HsQ" style="height: 101%" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4 mt-5 ">
+					<p class="h5 mb-4">Admin view</p>
+					<div class="embed-responsive embed-responsive-16by9 z-depth-5">
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/usdYsIplkFk" style="height: 101%" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ###############################################################################################################################-->
+		
+		
+		<!-- ##################################################################################################################-->
+		<div class="row"><!-- ROW  CONTENIDO -->
+		<!-- #####################################################################################################################-->
+		<!-- ################################################## LISTAS DEL MENU LATERAL #######################################################-->
+		<div class="col-12 col-md-2 ">
+			<div class="list-group list-group-flush lista" id="listadmin">
+				<a href='#' class='list-group-item list-group-item-action'>Editar Usuarios</a>
+				<a href='#' class='list-group-item list-group-item-action'>Cursos</a>
+			</div>
+			<div class="list-group list-group-flush lista" id="listprofesor">
+				<a href='#' class='list-group-item list-group-item-action'>Asignaturas</a>
+				<a href='#' class='list-group-item list-group-item-action'>Crear Pregunta</a>
+				<a href='#' class='list-group-item list-group-item-action'>Editar Pregunta</a>
+				<a href='#' class='list-group-item list-group-item-action'>Fijar Exámen</a>
+			</div>
+			<div class="list-group list-group-flush lista" id="listconfig">
+				<a href='#' class='list-group-item list-group-item-action'>Datos perfil</a>
+				<a href='#' class='list-group-item list-group-item-action'>Cambiar clave</a>
+				<a href='#' class='list-group-item list-group-item-action' data-toggle="modal" data-target="#exampleModal">Eliminar cuenta</a>
+				<a href='#' class='list-group-item list-group-item-action'>Credencial</a>
+			</div>
+			<div class="list-group list-group-flush lista" id="listalumno">
+				<a href='#' class='list-group-item list-group-item-action'>Hacer examen</a>
+			</div>
+		</div>
+		<!-- #################################################################################################-->
+		<!-- ####################################################################################################-->
+		<!-- ################################ MODAL CONFIRMACION DE ELIMINAR CUENTA #####################################################-->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						¿Estás seguro de que deseas eliminar tu cuenta?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-success" id="deletaccountacept" data-dismiss="modal" onclick="window.location.href='index.html'">Aceptar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ###############################################################################################-->
+		
+		<!-- #######################################################################################################-->	
+		<!-- ####################### COLUMNA DE LA DERECHA #######################################################-->
+		<div class="col-10" id="columnacont">
+			
+			<!-- ####################################################################################################-->
+			<!-- ################################# TABALA PARA MOSTRAR USUARIOS #################################################-->
+			<table class='table table-striped tablaadmin' id="tableusers">
+				<thead>
+					<tr class="table-primary">
+						<th scope='col'>Usuario</th>
+						<th class='d-none d-md-table-cell' scope='col'>DNI</th>
+						<th class='d-none d-md-table-cell' scope='col'>Email</th>
+						<th scope='col'>Tipo</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<!-- ############################################################################-->
+			<!-- #############################################################################################-->
+			<!-- ###################################### TABLA PRA MOSTRAR CURSOS ######################################-->
+			<table class='table table-striped tablaadmin' id="tablecursos">
+				<thead>
+					<tr class="table-primary">
+						<th scope='col'>Cod_curso</th>
+						<th scope='col'>Nombre Curso</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td>
+							<button class="btn btn-primary" id="botonnewcurso" data-toggle='modal' data-target='#modalcrearcurso'><i class="fas fa-plus-circle"></i></button>
+						</td>
+						<td></td><td></td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+			<!-- ################################################################################################-->
+			<!-- ###############################################################################################-->
+			<!-- #################################### SELECT PARA ELEGIR CURSO #######################################-->
+			<div id="contselectprofe">
+				<div class="d-flex flex-column" >
+					<div class='col-6 align-self-center mt-3'>
+						<div class='form-group'>
+							<label>Elige Curso</label>
+							<select class='form-control' id='selectcurso'>
+							</select>
 						</div>
 					</div>
 				</div>
 			</div>
-<!-- ###############################################################################################################################################################-->	
-
-
-
-<!-- ###############################################################################################################################################################-->	
-<!-- ##################### CONTENEDOR DE VIDEOS SEGUNDA PESTAÑA DEL MENU #####################################################################-->	
-			<div id="how">
-				<div class="row d-flex px-5" >
-					<div class=" col-12 col-md-6 col-lg-4 mt-5">
-						<p class="h5 mb-4">Registro Alumno</p>
-
-						<div class="embed-responsive embed-responsive-16by9 z-depth-5">
-							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/l8cD6Qx7HsQ" style="height: 101%" allowfullscreen></iframe>
+			<!-- ###############################################################################################-->
+			<!-- ##########################################################################################################-->
+			<!-- ############################ SELECT PARA SELECCIONAR CURSO AL INSERTAR PREGUNTA  ##################################-->
+			<div  id="selectcursopregunt">
+				<div class="d-flex flex-column">
+					<div class='col-6 align-self-center mt-3'>
+						<div class='form-group'>
+							<label>Elige Curso</label>
+							<select class='form-control' id='selectcursopregun'>
+							</select>
 						</div>
-
 					</div>
-
-					<div class="col-12 col-md-6 col-lg-4 mt-5 ">
-						<p class="h5 mb-4">Admin view</p>
-						<div class="embed-responsive embed-responsive-16by9 z-depth-5">
-							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/usdYsIplkFk" style="height: 101%" allowfullscreen></iframe>
-						</div>
-					</div>			  
 				</div>
 			</div>
-<!-- ###############################################################################################################################################################-->		
-			
-								
-<!-- ###############################################################################################################################################################-->	
-			<div class="row"><!-- ROW  CONTENIDO -->
-
-<!-- ###############################################################################################################################################################-->	
-<!-- ################################################## LISTAS DEL MENU LATERAL #######################################################-->	
-				<div class="col-12 col-md-2 ">
-					<div class="list-group list-group-flush lista" id="listadmin">
-						<a href='#' class='list-group-item list-group-item-action'>Editar Usuarios</a>
-						<a href='#' class='list-group-item list-group-item-action'>Cursos</a>
-					</div>
-
-					<div class="list-group list-group-flush lista" id="listprofesor">
-						<a href='#' class='list-group-item list-group-item-action'>Asignaturas</a>
-						<a href='#' class='list-group-item list-group-item-action'>Crear Pregunta</a>
-						<a href='#' class='list-group-item list-group-item-action'>Editar Pregunta</a>
-						<a href='#' class='list-group-item list-group-item-action'>Fijar Exámen</a>
-					</div>
-					<div class="list-group list-group-flush lista" id="listconfig">
-						<a href='#' class='list-group-item list-group-item-action'>Datos perfil</a>
-						<a href='#' class='list-group-item list-group-item-action'>Cambiar clave</a>
-						<a href='#' class='list-group-item list-group-item-action' data-toggle="modal" data-target="#exampleModal">Eliminar cuenta</a>
-						<a href='#' class='list-group-item list-group-item-action'>Credencial</a>
-					</div>
-					<div class="list-group list-group-flush lista" id="listalumno">
-						<a href='#' class='list-group-item list-group-item-action'>Hacer examen</a>
+			<!-- #################################################################################-->
+			<!-- ######################## SELECT ESCOGER ASIGNATURA #######################################-->
+			<div id="selectasig">
+				<div class="d-flex flex-column">
+					<div class='col-6 align-self-center mt-3'>
+						<div class='form-group'>
+							<label>Elige Asignatura</label>
+							<select class='form-control' id='selectasigpregun'>
+							</select>
+						</div>
 					</div>
 				</div>
-<!-- ###############################################################################################################################################################-->	
-
-
-
-<!-- ###############################################################################################################################################################-->	
-<!-- ################################ MODAL CONFIRMACION DE ELIMINAR CUENTA ##########################################################################-->			
-				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div class="modal-body">
-				        ¿Estás seguro de que deseas eliminar tu cuenta?
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-				        <button type="button" class="btn btn-success" id="deletaccountacept" data-dismiss="modal" onclick="window.location.href='index.html'">Aceptar</button>
-				      </div>
-				    </div>
-				  </div>
+			</div>
+			<!-- ##################################################################################-->
+			<!-- ########################################################################################-->
+			<!-- ########################### SELECT PARA ESCOGER CURSO AL EDITAR ######################################-->
+			<div  id="selecteditpreguncurs">
+				<div class="d-flex flex-column">
+					<div class='col-6 align-self-center mt-3'>
+						<div class='form-group'>
+							<label>Elige Curso</label>
+							<select class='form-control' id='selecteditpreguncurso'>
+							</select>
+						</div>
+					</div>
 				</div>
-<!-- ###############################################################################################################################################################-->	
-
-
-				
-	<!-- ###############################################################################################################################################################-->	<!-- ####################### COLUMNA DE LA DERECHA #######################################################-->		
-				<div class="col-10" id="columnacont">
-
-					
-<!-- ###############################################################################################################################################################-->
-<!-- ################################# TABALA PARA MOSTRAR USUARIOS ###########################################################################-->
-					<table class='table table-striped tablaadmin' id="tableusers">
-						<thead>
-							<tr class="table-primary">
-								<th scope='col'>Usuario</th>
-								<th class='d-none d-md-table-cell' scope='col'>DNI</th>
-								<th class='d-none d-md-table-cell' scope='col'>Email</th>
-								<th scope='col'>Tipo</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-<!-- ###############################################################################################################################################################-->
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ########################################## TABLA PRA MOSTRAR CURSOS ###############################################################################-->
-					<table class='table table-striped tablaadmin' id="tablecursos">
-						<thead>
-							<tr class="table-primary">
-								<th scope='col'>Cod_curso</th>
-								<th scope='col'>Nombre Curso</th>
-								<th></th>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn btn-primary" id="botonnewcurso" data-toggle='modal' data-target='#modalcrearcurso'><i class="fas fa-plus-circle"></i></button>
-								</td>
-								<td></td><td></td>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-						<tfoot>
-						</tfoot>
-					</table>
-<!-- ###############################################################################################################################################################-->
-
-
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ############################################ SELECT PARA ELEGIR CURSO ##########################################################################-->
-						<div id="contselectprofe">
-							<div class="d-flex flex-column" >
-								<div class='col-6 align-self-center mt-3'>
-									<div class='form-group'>
-										<label>Elige Curso</label>
-										<select class='form-control' id='selectcurso'>	
-										</select>
-									</div>
-								</div>
-							</div>
-						</div>
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->
-<!-- ############################## SELECT PARA SELECCIONAR CURSO AL INSERTAR PREGUNTA  #####################################################################################-->
-						<div  id="selectcursopregunt">
-							<div class="d-flex flex-column">
-								<div class='col-6 align-self-center mt-3'>
-									<div class='form-group'>
-										<label>Elige Curso</label>
-										<select class='form-control' id='selectcursopregun'>
-										</select>
-									</div>
-								</div>
-							</div>
-						</div>
-
-<!-- ###############################################################################################################################################################-->
-<!-- ##################################### SELECT ESCOGER ASIGNATURA ###############################################################################-->
-					<div id="selectasig">
-						<div class="d-flex flex-column">
-							<div class='col-6 align-self-center mt-3'>
-								<div class='form-group'>
-									<label>Elige Asignatura</label>
-									<select class='form-control' id='selectasigpregun'>	
-									</select>
-								</div>
-							</div>
+			</div>
+			<!-- #######################################################################-->
+			<!-- ##########################################################################-->
+			<!-- ################################## SELECT PARA ESCOGER CURSO AL FIJAR EXAMEN ##################################-->
+			<div  id="selectcursofixexamen">
+				<div class="d-flex flex-column">
+					<div class='col-6 align-self-center mt-3'>
+						<div class='form-group'>
+							<label>Elige Curso</label>
+							<select class='form-control' id='selectcursofixedexamen'>
+							</select>
 						</div>
 					</div>
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->
-<!-- ################################## SELECT PARA ESCOGER CURSO AL EDITAR ##################################################################################-->
-					<div  id="selecteditpreguncurs">
-						<div class="d-flex flex-column">
-							<div class='col-6 align-self-center mt-3'>		
-								<div class='form-group'>
-									<label>Elige Curso</label>
-									<select class='form-control' id='selecteditpreguncurso'>
-									</select>
-								</div>
-							</div>
+				</div>
+			</div>
+			<!-- ####################################################################-->
+			<!-- ################################################################################-->
+			<!-- ########################### CAJA PARA SELECCIONAR ASIGNATURA AL EDITAR #################################-->
+			<div id="seleceditpregunasig">
+				<div class="d-flex flex-column">
+					<div class='col-6 align-self-center mt-3'>
+						<div class='form-group'>
+							<label>Elige Asignatura</label>
+							<select class='form-control' id='seleceditpregunasign'>
+							</select>
 						</div>
 					</div>
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->
-<!-- ################################## SELECT PARA ESCOGER CURSO AL FIJAR EXAMEN ##################################################################################-->
-					<div  id="selectcursofixexamen">
-						<div class="d-flex flex-column">
-							<div class='col-6 align-self-center mt-3'>		
-								<div class='form-group'>
-									<label>Elige Curso</label>
-									<select class='form-control' id='selectcursofixedexamen'>
-									</select>
-								</div>
-							</div>
+				</div>
+			</div>
+			<!-- ######################################################################-->
+			<!-- ##############################################################################-->
+			<!-- ######################### CAJA PARA SELECCIONAR ASIGNATURA AL FIJAR EXAM ##################################-->
+			<div id="selectfixexamasig">
+				<div class="d-flex flex-column">
+					<div class='col-6 align-self-center mt-3'>
+						<div class='form-group'>
+							<label>Elige Asignatura</label>
+							<select class='form-control' id='selectfixedexamasig'>
+							</select>
 						</div>
 					</div>
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->
-<!-- ############################# CAJA PARA SELECCIONAR ASIGNATURA AL EDITAR ##########################################################################-->
-					<div id="seleceditpregunasig">
-						<div class="d-flex flex-column">
-							<div class='col-6 align-self-center mt-3'>
-								<div class='form-group'>
-									<label>Elige Asignatura</label>
-									<select class='form-control' id='seleceditpregunasign'>
-									</select>
-								</div>	
-							</div>
-						</div>
-					</div>
-<!-- ###############################################################################################################################################################-->
-<!-- ###############################################################################################################################################################-->
-<!-- ############################# CAJA PARA SELECCIONAR ASIGNATURA AL FIJAR EXAM ##########################################################################-->
-					<div id="selectfixexamasig">
-						<div class="d-flex flex-column">
-							<div class='col-6 align-self-center mt-3'>
-								<div class='form-group'>
-									<label>Elige Asignatura</label>
-									<select class='form-control' id='selectfixedexamasig'>
-									</select>
-								</div>	
-							</div>
-						</div>
-					</div>
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->
-<!-- ################################### FORMULARIO TABLA PARA MOSTRAR LAS PREGUNTAS Y ESCOGERLAS #######################################################################-->
-				<div>
-					<div class="alert alert-success" id="elrtfixedexam1" role="alert">
-							Examen Puesto con éxito.
-					</div>
-					<div class="alert alert-danger" id="elrtfixedexam2" role="alert">
-							Has seleccionado mas de 20 preguntas o ninguna, por favor comprueba que seleccionas un maximo de 20 y un mínimo de 1.
-					</div>
+				</div>
+			</div>
+			<!-- #################################################################-->
+			<!-- #################################################################################################-->
+			<!-- ######################## FORMULARIO TABLA PARA MOSTRAR LAS PREGUNTAS Y ESCOGERLAS ##############################-->
+			<div>
+				<div class="alert alert-success" id="elrtfixedexam1" role="alert">
+					Examen Puesto con éxito.
+				</div>
+				<div class="alert alert-danger" id="elrtfixedexam2" role="alert">
+					Has seleccionado mas de 20 preguntas o ninguna, por favor comprueba que seleccionas un maximo de 20 y un mínimo de 1.
+				</div>
 				<form action="../php/fixedexam.php" method="post" id="formfixedexam">
 					<input type="hidden" name="codasig" id="codasigfixex">
 					<table class='table table-striped' id="tablepreguntasexam">
@@ -367,553 +335,487 @@
 						<tbody>
 						</tbody>
 						<tfoot>
-							<tr><td colspan="3"><button type="button" class="btn btn-warning float-right" data-toggle='modal' data-target='#modalfixedexam'>Fijar Exámen</button></td></tr>
+						<tr><td colspan="3"><button type="button" class="btn btn-warning float-right" data-toggle='modal' data-target='#modalfixedexam'>Fijar Exámen</button></td></tr>
 						</tfoot>
 					</table>
-
 					<div class="modal fade" id="modalfixedexam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							  <div class="modal-dialog" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title">Creando Asignatura</h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true">&times;</span>
-								        </button>
-							      </div>
-							      <div class="modal-body">
-										<div class='form-group '><label >Descripción</label>
-											<input type='text' class='form-control' name='descripcion'  placeholder='Introduce Descripcion del examen' required>
-											<small class="form-text text-muted">Esta descripcion sera mostrada a la hora de que el alumno escoja un examen, por ejemplo examen tema 1...</small>
-										</div>		
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							        <button type='submit' name='enviar' class='btn btn-primary'>Enviar</button>
-							      </div>
-							    </div>
-							  </div>
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Creando Asignatura</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class='form-group '><label >Descripción</label>
+									<input type='text' class='form-control' name='descripcion'  placeholder='Introduce Descripcion del examen' required>
+									<small class="form-text text-muted">Esta descripcion sera mostrada a la hora de que el alumno escoja un examen, por ejemplo examen tema 1...</small>
+								</div>
 							</div>
-
-				</form>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type='submit' name='enviar' class='btn btn-primary'>Enviar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- ############################################################################################-->
+		<!-- #####################################################################################-->
+		<!-- ################################### TABLA PARA MOSTRAR LAS PREGUNTAS ####################################-->
+		<table class='table table-striped' id="tablepreguntas">
+			<thead>
+				<tr class="table-primary">
+					<th scope='col'>Cod_Pregunta</th>
+					<th scope='col'>Texto Pregunta</th>
+					<th>Asignatura</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<!-- ######################################################################################################-->
+		<!-- ##############################################################################################################-->
+		<!-- ############################# FORMULARIO PARA INSERTAR PREGUNTA Y RESPUESTA ######################################-->
+		<div id="formulariopregunta">
+			
+			<div class="d-flex flex-column">
+				<div class='col-8 align-self-center my-3'>
+					<div class="alert alert-success" id="alertpregunta" role="alert">
+						Pregunta creada con éxito.
+					</div>
+					
+					<form action="../php/createquestion.php" method="post" id="formulariopreguntas">
+						<div class="form-group">
+							<label>Texto Pregunta</label>
+							<input type="hidden" name="codigoasig" id="codigoasig" value="">
+							<textarea class="form-control rounded-0" name="pregunta" rows="4" required></textarea>
+							<!-- <input class="form-control" type="text" name="pregunta" placeholder="Introduce pregunta" required> -->
+						</div>
+						<div class="form-group">
+							<label>Respuesta 1</label>
+							<textarea class="form-control rounded-0" name="respuesta1" rows="2" required></textarea>
+							<!-- <input class="form-control" type="text" name="respuesta1" placeholder="Introduce respuesta1" required> -->
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta"  value="true1" required>
+								<small class="form-text text-muted">Seleccione si es correcta</small>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label>Respuesta 2</label>
+							<textarea class="form-control rounded-0" name="respuesta2" rows="2" required></textarea>
+							<!-- <input class="form-control" type="text" name="respuesta2" placeholder="Introduce respuesta2" required> -->
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta"  value="true2">
+								<small class="form-text text-muted">Seleccione si es correcta</small>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label>Respuesta 3</label>
+							<textarea class="form-control rounded-0" name="respuesta3" rows="2" required></textarea>
+							<!-- <input class="form-control" type="text" name="respuesta3" placeholder="Introduce respuesta3" required> -->
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta"  value="true3">
+								<small class="form-text text-muted">Seleccione si es correcta</small>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label>Respuesta 4</label>
+							<textarea class="form-control rounded-0" name="respuesta4" rows="2" required></textarea>
+							<!-- <input class="form-control" type="text" name="respuesta4" placeholder="Introduce respuesta4" required> -->
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta"  value="true4">
+								<small class="form-text text-muted">Seleccione si es correcta</small>
+							</div>
+						</div>
+						
+						
+						<button type="submit" class="btn btn-primary">Insertar</button>
+					</form>
+				</div>
 			</div>
-<!-- ###############################################################################################################################################################-->
-
-	<!-- ###############################################################################################################################################################-->
-	<!-- ################################### TABLA PARA MOSTRAR LAS PREGUNTAS ############################################################################-->
-					<table class='table table-striped' id="tablepreguntas">
-						<thead>
-							<tr class="table-primary">
-								<th scope='col'>Cod_Pregunta</th>
-								<th scope='col'>Texto Pregunta</th>
-								<th>Asignatura</th>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-<!-- ###############################################################################################################################################################-->
-
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ############################################ FORMULARIO PARA INSERTAR PREGUNTA Y RESPUESTA #####################################################################-->
-					<div id="formulariopregunta">
+		</div>
+		<!-- #######################################################################################-->
+		<!-- ###############################################################################-->
+		<!-- ############################### FORMULARIO PARA EDITAR PREGUNTA Y RESPUESTA #############################-->
+		<div id="formularioeditpregunta">
+			<div class="d-flex flex-column">
+				<div class='col-8 align-self-center my-3'>
+					<div class="alert alert-success" id="alertpreguntaedit" role="alert">
+						Pregunta editada con éxito.
+					</div>
+					<form action="../php/editquestion.php" method="post" id="formulariopreguntasedit">
+						<div class="form-group">
+							<label>Texto Pregunta</label>
+							<textarea class="form-control rounded-0" id="preguntaedit" name="pregunta" rows="4" required></textarea>
+							<!-- <input class="form-control" type="text" name="pregunta" id="preguntaedit" placeholder="Introduce pregunta" required> -->
+							<input type="hidden" name="codpreguntaedit" id="codpreguntaedit">
+						</div>
+						<div class="form-group">
+							<label>Respuesta 1</label>
+							<textarea class="form-control rounded-0" id="respuesta1edit" name="respuesta1" rows="2" required></textarea>
+							<!-- <input class="form-control" type="text" name="respuesta1" id="respuesta1edit" placeholder="Introduce respuesta1" required> -->
+							<input type="hidden" name="codrespuesta1edit" id="codrespuesta1edit">
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta"  value="true1" id="radio1" required>
+								<small class="form-text text-muted">Seleccione si es correcta</small>
+							</div>
+						</div>
 						
-						<div class="d-flex flex-column">
-
-							<div class='col-8 align-self-center my-3'>
-								<div class="alert alert-success" id="alertpregunta" role="alert">
-							  Pregunta creada con éxito.
-								</div>
-							
-								<form action="../php/createquestion.php" method="post" id="formulariopreguntas">
-									<div class="form-group">
-										<label>Texto Pregunta</label>
-										<input type="hidden" name="codigoasig" id="codigoasig" value="">
-										<textarea class="form-control rounded-0" name="pregunta" rows="4" required></textarea>
-										<!-- <input class="form-control" type="text" name="pregunta" placeholder="Introduce pregunta" required> -->
-									</div>
-
-									<div class="form-group">
-										<label>Respuesta 1</label>
-										<textarea class="form-control rounded-0" name="respuesta1" rows="2" required></textarea>
-										<!-- <input class="form-control" type="text" name="respuesta1" placeholder="Introduce respuesta1" required> -->
-									</div>
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta"  value="true1" required>
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-
-									<div class="form-group">
-										<label>Respuesta 2</label>
-										<textarea class="form-control rounded-0" name="respuesta2" rows="2" required></textarea>
-										<!-- <input class="form-control" type="text" name="respuesta2" placeholder="Introduce respuesta2" required> -->
-									</div>
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta"  value="true2">
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-
-									<div class="form-group">
-										<label>Respuesta 3</label>
-										<textarea class="form-control rounded-0" name="respuesta3" rows="2" required></textarea>
-										<!-- <input class="form-control" type="text" name="respuesta3" placeholder="Introduce respuesta3" required> -->
-									</div>
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta"  value="true3">
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-
-									<div class="form-group">
-										<label>Respuesta 4</label>
-										<textarea class="form-control rounded-0" name="respuesta4" rows="2" required></textarea>
-										<!-- <input class="form-control" type="text" name="respuesta4" placeholder="Introduce respuesta4" required> -->
-									</div>
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta"  value="true4">
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-									
-									<button type="submit" class="btn btn-primary">Insertar</button>
-								</form>
+						<div class="form-group">
+							<label>Respuesta 2</label>
+							<textarea class="form-control rounded-0" id="respuesta2edit" name="respuesta2" rows="2" required></textarea>
+							<!-- <input class="form-control" type="text" name="respuesta2" id="respuesta2edit" placeholder="Introduce respuesta2" required> -->
+							<input type="hidden" name="codrespuesta2edit" id="codrespuesta2edit">
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta" id="radio2"  value="true2">
+								<small class="form-text text-muted">Seleccione si es correcta</small>
 							</div>
 						</div>
-					</div>
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->
-<!-- ############################################ FORMULARIO PARA EDITAR PREGUNTA Y RESPUESTA ##################################################################-->
-					<div id="formularioeditpregunta">
-						<div class="d-flex flex-column">
-							<div class='col-8 align-self-center my-3'>
-								<div class="alert alert-success" id="alertpreguntaedit" role="alert">
-							  		Pregunta editada con éxito.
-								</div>
-								<form action="../php/editquestion.php" method="post" id="formulariopreguntasedit">
-									<div class="form-group">
-										<label>Texto Pregunta</label>
-										<textarea class="form-control rounded-0" id="preguntaedit" name="pregunta" rows="4" required></textarea>
-										<!-- <input class="form-control" type="text" name="pregunta" id="preguntaedit" placeholder="Introduce pregunta" required> -->
-										<input type="hidden" name="codpreguntaedit" id="codpreguntaedit">
-									</div>
-
-									<div class="form-group">
-										<label>Respuesta 1</label>
-										<textarea class="form-control rounded-0" id="respuesta1edit" name="respuesta1" rows="2" required></textarea>
-										<!-- <input class="form-control" type="text" name="respuesta1" id="respuesta1edit" placeholder="Introduce respuesta1" required> -->
-										<input type="hidden" name="codrespuesta1edit" id="codrespuesta1edit">
-									</div>
-
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta"  value="true1" id="radio1" required>
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-
-									<div class="form-group">
-										<label>Respuesta 2</label>
-										<textarea class="form-control rounded-0" id="respuesta2edit" name="respuesta2" rows="2" required></textarea>
-										<!-- <input class="form-control" type="text" name="respuesta2" id="respuesta2edit" placeholder="Introduce respuesta2" required> -->
-										<input type="hidden" name="codrespuesta2edit" id="codrespuesta2edit">
-									</div>
-
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta" id="radio2"  value="true2">
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-
-									<div class="form-group">
-										<label>Respuesta 3</label>
-										<textarea class="form-control rounded-0" id="respuesta3edit" name="respuesta3" rows="2" required></textarea>
-										<!-- <input class="form-control" type="text" name="respuesta3" id="respuesta3edit" placeholder="Introduce respuesta3" required> -->
-										<input type="hidden" name="codrespuesta3edit" id="codrespuesta3edit">
-									</div>
-
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta" id="radio3"  value="true3">
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-
-									<div class="form-group">
-										<label>Respuesta 4</label>
-										<textarea class="form-control rounded-0" id="respuesta4edit" name="respuesta4" rows="2" required></textarea>
-										<!--<input class="form-control" type="text" name="respuesta4" id="respuesta4edit" placeholder="Introduce respuesta4" required>-->
-										<input type="hidden" name="codrespuesta4edit" id="codrespuesta4edit">
-									</div>
-
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="radiorespuesta" id="radio4"  value="true4">
-										  <small class="form-text text-muted">Seleccione si es correcta</small>
-										</div>
-									</div>
-									
-									
-									<button type="submit" class="btn btn-primary">Editar</button>
-								</form>
-							</div>
-						</div>
-					</div>
-<!-- ###############################################################################################################################################################-->
-
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ######################################### FORMULARIO DEL EXAMEN #############################################################-->
-					<div id="formularioexamen" >
 						
-						<div class="d-flex flex-column flex-wrap" >
-
-							<div class='col my-3 d-flex' >
-								
-							
-								<form action="../php/resultadoexamen.php" method="post" id="formexamenaleatorio">
-									
-									<div id="contenidoexamen"></div>
-									
-									<div class="mt-3">
-										<input type="hidden" name="campos" id="cantidadcamposexamen">
-										<button type='submit' class='btn btn-warning'>enviar examen</button>
-									</div>
-								</form>
+						<div class="form-group">
+							<label>Respuesta 3</label>
+							<textarea class="form-control rounded-0" id="respuesta3edit" name="respuesta3" rows="2" required></textarea>
+							<!-- <input class="form-control" type="text" name="respuesta3" id="respuesta3edit" placeholder="Introduce respuesta3" required> -->
+							<input type="hidden" name="codrespuesta3edit" id="codrespuesta3edit">
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta" id="radio3"  value="true3">
+								<small class="form-text text-muted">Seleccione si es correcta</small>
 							</div>
 						</div>
-					</div>
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ###############################################################################################################################################################-->
-<!-- ########################################### Caja resultados del examen ################################################################-->
-					<div id="cardresultado">
-						<div class="d-flex flex-column " >
-							<div class='col-6 align-self-center my-3'>
-								<div class="card" style="width: 18rem;" >
-						  <ul class="list-group list-group-flush text-light">
-						    <li class="list-group-item bg-success text-light" id="aciertos"></li>
-						    <li class="list-group-item bg-danger text-light" id="fallos"></li>
-						    <li class="list-group-item bg-secondary text-light" id="blancos"></li>
-						  </ul>
-						</div>
-
-							</div>
-					</div>
-					</div>
-<!-- ###############################################################################################################################################################-->		
 						
-
-					<!-- ################################################ Alert no hay preguntas de esa clase #############################################-->
-						<div class="alert alert-danger" id="alertnopreguntas" role="alert">
-							   No hay preguntas de esta asignatura
+						<div class="form-group">
+							<label>Respuesta 4</label>
+							<textarea class="form-control rounded-0" id="respuesta4edit" name="respuesta4" rows="2" required></textarea>
+							<!--<input class="form-control" type="text" name="respuesta4" id="respuesta4edit" placeholder="Introduce respuesta4" required>-->
+							<input type="hidden" name="codrespuesta4edit" id="codrespuesta4edit">
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="radiorespuesta" id="radio4"  value="true4">
+								<small class="form-text text-muted">Seleccione si es correcta</small>
 							</div>
-
-<!-- ###############################################################################################################################################################-->
-<!-- ################################################ TABLA PARA ASIGNATURAS #############################################-->
-
-					<table class='table table-striped tablaadmin' id="tableasignaturas">
-						<thead>
-							<tr class="table-primary">
-								<th scope='col'>ABBR</th>
-								<th scope='col'>Nombre</th>
-								<th></th>
-								<th></th>
-							</tr>
-							<tr><td><button class="btn btn-primary" id="botonnewasignatura" data-toggle="modal" data-target="#modalcrearasignatura"><i class="fas fa-plus-circle"></i></button></td><td></td><td></td><td></td></tr>
-						</thead>
-						<tbody>
-							
-						</tbody>
-						<tfoot>
-							
-						</tfoot>
-					</table>
-
-<!-- ###############################################################################################################################################################-->
-
-
-
-
-
-
-
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ####################################### FORMULARIO ANTERIOR AL MODAL ##################################################-->
-				<!-- 	<div id="createasignatura">
-						<div class="d-flex flex-column" >
-
-					<div class='col-6 align-self-center my-4' >
-						<form action='../php/crearasignatura.php' method='post' id="crearasig"> 
-							<div class='form-group '><label >Nombre Asignatura</label>
-								<input type='text' class='form-control' name='nombreasig'  placeholder='Introduce Nombre de la asigantura' required>
+						</div>
+						
+						
+						<button type="submit" class="btn btn-primary">Editar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- #################################################################################################-->
+		<!-- #############################################################################################-->
+		<!-- ################################ FORMULARIO DEL EXAMEN ##########################################-->
+		<div id="formularioexamen" >
+			
+			<div class="d-flex flex-column flex-wrap" >
+				<div class='col my-3 d-flex' >
+					
+					
+					<form action="../php/resultadoexamen.php" method="post" id="formexamenaleatorio">
+						
+						<div id="contenidoexamen"></div>
+						
+						<div class="mt-3">
+							<input type="hidden" name="campos" id="cantidadcamposexamen">
+							<button type='submit' class='btn btn-warning'>enviar examen</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- #################################################################################-->
+		<!-- ################################################################################################-->
+		<!-- ################################ Caja resultados del examen ############################################-->
+		<div id="cardresultado">
+			<div class="d-flex flex-column " >
+				<div class='col-6 align-self-center my-3'>
+					<div class="card" style="width: 18rem;" >
+						<ul class="list-group list-group-flush text-light">
+							<li class="list-group-item bg-success text-light" id="aciertos"></li>
+							<li class="list-group-item bg-danger text-light" id="fallos"></li>
+							<li class="list-group-item bg-secondary text-light" id="blancos"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ########################################################################################-->
+		
+		<!-- ##################################### Alert no hay preguntas de esa clase #####################################-->
+		<div class="alert alert-danger" id="alertnopreguntas" role="alert">
+			No hay preguntas de esta asignatura
+		</div>
+		<!-- #########################################################################################-->
+		<!-- ################################### TABLA PARA ASIGNATURAS ##################################-->
+		<table class='table table-striped tablaadmin' id="tableasignaturas">
+			<thead>
+				<tr class="table-primary">
+					<th scope='col'>ABBR</th>
+					<th scope='col'>Nombre</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr><td><button class="btn btn-primary" id="botonnewasignatura" data-toggle="modal" data-target="#modalcrearasignatura"><i class="fas fa-plus-circle"></i></button></td><td></td><td></td><td></td></tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+			<tfoot>
+			
+			</tfoot>
+		</table>
+		<!-- ###########################################################################################-->
+		<!-- ####################################################################################################-->
+		<!-- ################################## FORMULARIO ANTERIOR AL MODAL ##############################################-->
+		<!-- 	<div id="createasignatura">
+				<div class="d-flex flex-column" >
+				<div class='col-6 align-self-center my-4' >
+						<form action='../php/crearasignatura.php' method='post' id="crearasig">
+								<div class='form-group '><label >Nombre Asignatura</label>
+									<input type='text' class='form-control' name='nombreasig'  placeholder='Introduce Nombre de la asigantura' required>
 							</div>
 							<input type="hidden" name="codcurso" value="" id="hiddenasig">
 							<div class='form-group '><label >Abreviatura Asignatura</label>
 								<input required type='text' class='form-control' name='codasig'  placeholder='Introduce abreviatura de la asignatura' pattern="^\w{1,5}$" title="Abreviatura: max 5 caracteres">
-							</div>
-
-							<div class="alert alert-danger" id="alertasig1" role="alert">
-							  Esa asignatura ya existe.
-							</div>
-							
-							<button type='submit' name='entrar' class='btn btn-primary btn-lg btn-block '>Crear</button>
-						</form>
-					</div>
-					</div>
-					</div> -->
-<!-- ###############################################################################################################################################################-->
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ############################################ FORMULARIO EN MODAL ##################################################################-->
-						<form action='../php/crearasignatura.php' method='post' id="crearasig"> 
-							<div class="modal fade" id="modalcrearasignatura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							  <div class="modal-dialog" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title">Creando Asignatura</h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true">&times;</span>
-								        </button>
-							      </div>
-							      <div class="modal-body">
-										<div class='form-group '><label >Nombre Asignatura</label>
-											<input type='text' class='form-control' name='nombreasig'  placeholder='Introduce Nombre de la asigantura' required>
-										</div>
-										<input type="hidden" name="codcurso" value="" id="hiddenasig">
-										<div class='form-group '><label >Abreviatura Asignatura</label>
-											<input required type='text' class='form-control' name='codasig'  placeholder='Introduce abreviatura de la asignatura' pattern="^\w{1,5}$" title="Abreviatura: max 5 caracteres">
-										</div>
-										<div class="alert alert-danger" id="alertasig1" role="alert">
-											 Esa asignatura ya existe.
-										</div>			
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							        <button type='submit' name='entrar' class='btn btn-primary'>Crear</button>
-							      </div>
-							    </div>
-							  </div>
-							</div>
-						</form>
-					
-						
-					
-					<!-- ##########################################################################################################################################-->
-
-
-<!-- ###############################################################################################################################################################-->
-					<!--############################################### MODAL PARA EL FORMULARIO DE CREAR CURSO################################################### -->
-				<form action='../php/crearcurso.php' method='post' id="crearcurso"> 
-					<div class="modal fade" id="modalcrearcurso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						     	<div class="modal-header">
-							        <h5 class="modal-title">Creando Curso</h5>
-							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							          	<span aria-hidden="true">&times;</span>
-							        </button>
-						        </div>
-						      	<div class="modal-body">
-									<div class='form-group '><label >Nombre Curso</label>
-										<input type='text' class='form-control' name='nombrecurso'  placeholder='Introduce Nombre del curso' required>
-									</div>
-									<div class='form-group '><label >Abreviatura Curso</label>
-										<input type='text' class='form-control' name='codcurso'  placeholder='Introduce abreviatura del curso' required pattern="^\w{1,5}$" title="Abreviatura: max 5 caracteres">
-									</div>
-									<div class="alert alert-danger" id="alertcurso1" role="alert">
-										 Ese curso ya existe.
-									</div>
-						        </div>
-						      	<div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							        <button type='submit' name='entrar' class='btn btn-primary'>Crear</button>	
-						    	</div>
-						 	</div>
 						</div>
-					</div>
+						<div class="alert alert-danger" id="alertasig1" role="alert">
+							Esa asignatura ya existe.
+						</div>
+						
+						<button type='submit' name='entrar' class='btn btn-primary btn-lg btn-block '>Crear</button>
 				</form>
-
-
-<!-- #################################################################################################################################################-->
-
-<!-- ######################################################### FORMULARIO ANTERIOR MODIFICACION AL MODAL ####################################################################-->
-				<!-- 	<div class="d-flex flex-column">
-						<div class='col-8 align-self-center my-4' id="createcurso">
-							<form action='../php/crearcurso.php' method='post' id="crearcurso"> 
-								<div class='form-group '><label >Nombre Curso</label>
-									<input type='text' class='form-control' name='nombrecurso'  placeholder='Introduce Nombre del curso' required>
-								</div>
-								<div class='form-group '><label >Abreviatura Curso</label>
-									<input type='text' class='form-control' name='codcurso'  placeholder='Introduce abreviatura del curso' required pattern="^\w{1,5}$" title="Abreviatura: max 5 caracteres">
-								</div>
-
-								<div class="alert alert-danger" id="alertcurso1" role="alert">
-								  Ese curso ya existe.
-								</div>
-								
-								<button type='submit' name='entrar' class='btn btn-primary btn-lg btn-block '>Crear</button>
-							</form>
-						</div>
-					</div>	 -->
-<!-- #################################################################################################################################-->
-<!-- ###############################################################################################################################################################-->
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ########################## FORMULARIO PARA INSERTAR CREDENCIAL ####################################################################################-->
-					<div id="credencial">
-						<div class="d-flex flex-column " >
-
-							<div class='col-8 align-self-center mt-3' >
-								
-							
-								<form action="../php/getpermissionsadmin.php" method="post" id="formcredential">
-									<div class="form-group">
-									    <label>Credencial de Administrador</label>
-									    <input type="text" class="form-control" name="credencial"   placeholder="Credencial Administrador">
-									    <small  class="form-text text-muted">Con la credencial podras obtener los permisos de administrador una vez cierres sesion y vuelvas a iniciar.</small>
-									  </div>
-									  <div class="alert alert-danger" id="alertcredencial" role="alert">
-										 Credencial erronea.
-										</div>
-										
-										<input type="hidden" name="nombre" id="credentialusername">
-										<button type='submit' class='btn btn-warning'>Enviar</button>
-									
-								</form>
-								<div class="alert alert-success" id="alertcredencial2" role="alert">
-										 Credencial correcta, reinicia sesion para ver los cambios.
-										</div>
-							</div>
-						</div>
-					</div>
-<!-- ###############################################################################################################################################################-->
-
-<!-- ###############################################################################################################################################################-->
-<!-- ################################### FORMULARIO PARA CAMBIAR DATOS DE PERFIL ############################################################################-->
-					
-					<div class="d-flex flex-column" >
-						<div class='col-8 align-self-center mt-3' id="datosperfil">
-							<div class='alert alert-success' id="alertedit" role='alert'>Datos cambiados con éxito</div>
-							       <form action="editperfil.php" method="post" id="formperfil">
-						<input type="hidden" name="username" id="username">
-			        	<div class="form-group"> 
-					    <label >Nombre</label>
-					    <input type="text"  id="nomb" name="nombre" class="form-control"  placeholder="Nombre" required>
-					  </div>
-					  <div class="form-group"> 
-					    <label >Apellido1</label>
-					    <input type="text"  id="ape1" name="apellido1" class="form-control"  placeholder="Nombre" required>
-					  </div>
-					  <div class="form-group"> 
-					    <label >Apellido2</label>
-					    <input type="text"  id="ape2" name="apellido2" class="form-control"  placeholder="Nombre" required>
-					  </div>
-
-					  <div class="form-group">
-					    <label >DNI</label>
-					    <input type="text" name="dni" onblur="valdni()"  id="dni" class="form-control"  placeholder="DNI" required>
-					  </div>
-					  <div class='alert alert-danger' id="alertdni" role='alert'>DNI erroneo comprueba que tenga 8 digitos y una letra al final</div>
-					  <div class="form-group">
-					    <label >Email</label>
-					    <input type="email" name="email" id="email" onblur="valemail()" class="form-control"  placeholder="Email" required>
-					  </div>
-					   <div class='alert alert-danger' id="alertemail" role='alert'>Email erroneo comprueba que tenga una @, un '.' y un subdominio valido</div>
-					   <div class='alert alert-danger' id="alertemail2" role='alert'>Este email ya existe, prueba con otro</div>
-
-					   
-					  <hr>
-					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-						
-						</form>
-						</div>
-					</div>
-<!-- ###############################################################################################################################################################-->
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ##################################### FORMULARIO PARA CMABIAR LA CONTRASEÑA ################################################################-->
-					<div class="d-flex flex-column">
-						<div class='col-8 align-self-center mt-3' id="cambiarpass">
-							<div class='alert alert-success mt-3' id="alertpassedit" role='alert'>Contraseña cambiada con éxito</div>
-							<form action="../php/validpass.php" method="post" id="formpass">
-								<div class="form-group"> 
-							    <label>Introduce contraseña actual</label>
-							    <input type="password"  id="pass" name="password" class="form-control"  placeholder="Contraseña" required>
-							    <div class='alert alert-danger mt-3' id="alertpass" role='alert'>Contraseña inconrrecta</div>
-							  </div>
-								 <button type="submit" class="btn btn-primary">Enviar</button>
-
-								
-							</form>
-
-							<form action="../php/editpass.php" method="post" id="editpass">
-								<div class="form-group"> 
-							    <label>Introduce nueva contraseña </label>
-							    <input type="password"  id="passnew" name="password1" class="form-control"  placeholder="Nueva Contraseña" required>
-							  </div>
-							  <div class="form-group"> 
-							    <label>Repite la contraseña</label>
-							    <input type="password"  id="passrep" name="password2" class="form-control"  placeholder="Repite Contraseña" required>
-							    <div class='alert alert-danger mt-3' id="alertequals" role='alert'>La contraseña no coincide</div>
-							  </div>
-							   <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
-							</form>
-						</div>
-					</div>
-<!-- ###############################################################################################################################################################-->
-
-
-					
-				</div> <!-- end columna contenido-->
-			</div><!-- end row contenido-->
-
-
-
-<!-- ###############################################################################################################################################################-->
-<!-- ################################# CONTENEDOR DEL FOOTER ##############################################-->
-			<div class="row justify-content-center sticky-bottom home" id="footer">
-				<div class="justify-content-center" >
-					 <footer class="my-5 text-muted d-flex flex-column ">
-					      <p class="mb-1  text-center">© 2018-2019 Alejandro Aladro</p>
-					       <ul class="list-inline">
-						       <li class="list-inline-item"> <a href="terms.html">Privacidad</a> </li>
-						       <li class="list-inline-item"> <a href="terms.html"> Términos y condiciones</a> </li>
-						       <li class="list-inline-item"> <a href="terms.html">Soporte</a> </li>
-					       </ul>
-					  </footer>
+		</div>
+	</div>
+</div> -->
+<!-- ################################################################################################################-->
+<!-- ##########################################################################################################################-->
+<!-- ################################### FORMULARIO EN MODAL ################################################-->
+<form action='../php/crearasignatura.php' method='post' id="crearasig">
+	<div class="modal fade" id="modalcrearasignatura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Creando Asignatura</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
+				<div class="modal-body">
+					<div class='form-group '><label >Nombre Asignatura</label>
+					<input type='text' class='form-control' name='nombreasig'  placeholder='Introduce Nombre de la asigantura' required>
+				</div>
+				<input type="hidden" name="codcurso" value="" id="hiddenasig">
+				<div class='form-group '><label >Abreviatura Asignatura</label>
+				<input required type='text' class='form-control' name='codasig'  placeholder='Introduce abreviatura de la asignatura' pattern="^\w{1,5}$" title="Abreviatura: max 5 caracteres">
 			</div>
-<!-- ###############################################################################################################################################################-->
-			
+			<div class="alert alert-danger" id="alertasig1" role="alert">
+				Esa asignatura ya existe.
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type='submit' name='entrar' class='btn btn-primary'>Crear</button>
+		</div>
+	</div>
+</div>
+</div>
+</form>
 
-	</div> <!-- end container  -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<!-- ##################################################################################-->
+<!-- ##########################################################################################################################-->
+<!--####################### MODAL PARA EL FORMULARIO DE CREAR CURSO#################################### -->
+<form action='../php/crearcurso.php' method='post' id="crearcurso">
+<div class="modal fade" id="modalcrearcurso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title">Creando Curso</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div class='form-group '><label >Nombre Curso</label>
+			<input type='text' class='form-control' name='nombrecurso'  placeholder='Introduce Nombre del curso' required>
+		</div>
+		<div class='form-group '><label >Abreviatura Curso</label>
+		<input type='text' class='form-control' name='codcurso'  placeholder='Introduce abreviatura del curso' required pattern="^\w{1,5}$" title="Abreviatura: max 5 caracteres">
+	</div>
+	<div class="alert alert-danger" id="alertcurso1" role="alert">
+		Ese curso ya existe.
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	<button type='submit' name='entrar' class='btn btn-primary'>Crear</button>
+</div>
+</div>
+</div>
+</div>
+</form>
+<!-- #############################################################################################################-->
+<!-- ################################# FORMULARIO ANTERIOR MODIFICACION AL MODAL #############################-->
+<!-- 	<div class="d-flex flex-column">
+	<div class='col-8 align-self-center my-4' id="createcurso">
+		<form action='../php/crearcurso.php' method='post' id="crearcurso">
+			<div class='form-group '><label >Nombre Curso</label>
+				<input type='text' class='form-control' name='nombrecurso'  placeholder='Introduce Nombre del curso' required>
+			</div>
+			<div class='form-group '><label >Abreviatura Curso</label>
+				<input type='text' class='form-control' name='codcurso'  placeholder='Introduce abreviatura del curso' required pattern="^\w{1,5}$" title="Abreviatura: max 5 caracteres">
+			</div>
+			<div class="alert alert-danger" id="alertcurso1" role="alert">
+			Ese curso ya existe.
+			</div>
+			
+			<button type='submit' name='entrar' class='btn btn-primary btn-lg btn-block '>Crear</button>
+		</form>
+	</div>
+</div>	 -->
+<!-- #################################################################################################################################-->
+<!-- ########################################################################################################################-->
+<!-- #########################################################################################################################-->
+<!-- ########################## FORMULARIO PARA INSERTAR CREDENCIAL ##################################-->
+<div id="credencial">
+<div class="d-flex flex-column " >
+<div class='col-8 align-self-center mt-3' >
+
+
+<form action="../php/getpermissionsadmin.php" method="post" id="formcredential">
+<div class="form-group">
+<label>Credencial de Administrador</label>
+<input type="text" class="form-control" name="credencial"   placeholder="Credencial Administrador">
+<small  class="form-text text-muted">Con la credencial podras obtener los permisos de administrador una vez cierres sesion y vuelvas a iniciar.</small>
+</div>
+<div class="alert alert-danger" id="alertcredencial" role="alert">
+Credencial erronea.
+</div>
+
+<input type="hidden" name="nombre" id="credentialusername">
+<button type='submit' class='btn btn-warning'>Enviar</button>
+
+</form>
+<div class="alert alert-success" id="alertcredencial2" role="alert">
+Credencial correcta, reinicia sesion para ver los cambios.
+</div>
+</div>
+</div>
+</div>
+<!-- #########################################################################################-->
+<!-- #######################################################################################################-->
+<!-- ############################# FORMULARIO PARA CAMBIAR DATOS DE PERFIL #######################################-->
+
+<div class="d-flex flex-column" >
+<div class='col-8 align-self-center mt-3' id="datosperfil">
+<div class='alert alert-success' id="alertedit" role='alert'>Datos cambiados con éxito</div>
+<form action="editperfil.php" method="post" id="formperfil">
+<input type="hidden" name="username" id="username">
+<div class="form-group">
+<label >Nombre</label>
+<input type="text"  id="nomb" name="nombre" class="form-control"  placeholder="Nombre" required>
+</div>
+<div class="form-group">
+<label >Apellido1</label>
+<input type="text"  id="ape1" name="apellido1" class="form-control"  placeholder="Nombre" required>
+</div>
+<div class="form-group">
+<label >Apellido2</label>
+<input type="text"  id="ape2" name="apellido2" class="form-control"  placeholder="Nombre" required>
+</div>
+<div class="form-group">
+<label >DNI</label>
+<input type="text" name="dni" onblur="valdni()"  id="dni" class="form-control"  placeholder="DNI" required>
+</div>
+<div class='alert alert-danger' id="alertdni" role='alert'>DNI erroneo comprueba que tenga 8 digitos y una letra al final</div>
+<div class="form-group">
+<label >Email</label>
+<input type="email" name="email" id="email" onblur="valemail()" class="form-control"  placeholder="Email" required>
+</div>
+<div class='alert alert-danger' id="alertemail" role='alert'>Email erroneo comprueba que tenga una @, un '.' y un subdominio valido</div>
+<div class='alert alert-danger' id="alertemail2" role='alert'>Este email ya existe, prueba con otro</div>
+
+<hr>
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+<button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+</form>
+</div>
+</div>
+<!-- ########################################################################################-->
+<!-- ###############################################################################################-->
+<!-- ############################### FORMULARIO PARA CMABIAR LA CONTRASEÑA ##########################################-->
+<div class="d-flex flex-column">
+<div class='col-8 align-self-center mt-3' id="cambiarpass">
+<div class='alert alert-success mt-3' id="alertpassedit" role='alert'>Contraseña cambiada con éxito</div>
+<form action="../php/validpass.php" method="post" id="formpass">
+<div class="form-group">
+<label>Introduce contraseña actual</label>
+<input type="password"  id="pass" name="password" class="form-control"  placeholder="Contraseña" required>
+<div class='alert alert-danger mt-3' id="alertpass" role='alert'>Contraseña inconrrecta</div>
+</div>
+<button type="submit" class="btn btn-primary">Enviar</button>
+
+</form>
+<form action="../php/editpass.php" method="post" id="editpass">
+<div class="form-group">
+<label>Introduce nueva contraseña </label>
+<input type="password"  id="passnew" name="password1" class="form-control"  placeholder="Nueva Contraseña" required>
+</div>
+<div class="form-group">
+<label>Repite la contraseña</label>
+<input type="password"  id="passrep" name="password2" class="form-control"  placeholder="Repite Contraseña" required>
+<div class='alert alert-danger mt-3' id="alertequals" role='alert'>La contraseña no coincide</div>
+</div>
+<button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+</form>
+</div>
+</div>
+<!-- ######################################################################################################-->
+
+</div> <!-- end columna contenido-->
+</div><!-- end row contenido-->
+<!-- ###################################################################################################-->
+<!-- ################################ CONTENEDOR DEL FOOTER #################################-->
+<div class="row justify-content-center sticky-bottom home" id="footer">
+<div class="justify-content-center" >
+<footer class="my-5 text-muted d-flex flex-column ">
+<p class="mb-1  text-center">© 2018-2019 Alejandro Aladro</p>
+<ul class="list-inline">
+<li class="list-inline-item"> <a href="terms.html">Privacidad</a> </li>
+<li class="list-inline-item"> <a href="terms.html"> Términos y condiciones</a> </li>
+<li class="list-inline-item"> <a href="terms.html">Soporte</a> </li>
+</ul>
+</footer>
+</div>
+</div>
+<!-- ######################################################################################################-->
+
+</div> <!-- end container  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
