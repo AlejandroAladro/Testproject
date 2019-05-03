@@ -229,6 +229,7 @@
 								<td>
 									<button class="btn btn-primary" id="botonnewcurso" data-toggle='modal' data-target='#modalcrearcurso'><i class="fas fa-plus-circle"></i></button>
 								</td>
+								<td></td><td></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -374,7 +375,7 @@
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel">Creando Asignatura</h5>
+							        <h5 class="modal-title">Creando Asignatura</h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true">&times;</span>
 								        </button>
@@ -607,7 +608,7 @@
 <!-- ########################################### Caja resultados del examen ################################################################-->
 					<div id="cardresultado">
 						<div class="d-flex flex-column " >
-							<div class='col-6 align-self-center my-3''>
+							<div class='col-6 align-self-center my-3'>
 								<div class="card" style="width: 18rem;" >
 						  <ul class="list-group list-group-flush text-light">
 						    <li class="list-group-item bg-success text-light" id="aciertos"></li>
@@ -632,8 +633,13 @@
 
 					<table class='table table-striped tablaadmin' id="tableasignaturas">
 						<thead>
-							<tr class="table-primary"><th scope='col'>ABBR</th><th scope='col'>Nombre</th><th></th><th></th></tr>
-							<tr><td><button class="btn btn-primary" id="botonnewasignatura" data-toggle="modal" data-target="#modalcrearasignatura"><i class="fas fa-plus-circle"></i></button></td></tr>
+							<tr class="table-primary">
+								<th scope='col'>ABBR</th>
+								<th scope='col'>Nombre</th>
+								<th></th>
+								<th></th>
+							</tr>
+							<tr><td><button class="btn btn-primary" id="botonnewasignatura" data-toggle="modal" data-target="#modalcrearasignatura"><i class="fas fa-plus-circle"></i></button></td><td></td><td></td><td></td></tr>
 						</thead>
 						<tbody>
 							
@@ -687,7 +693,7 @@
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel">Creando Asignatura</h5>
+							        <h5 class="modal-title">Creando Asignatura</h5>
 								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true">&times;</span>
 								        </button>
@@ -725,7 +731,7 @@
 						<div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						     	<div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel">Creando Curso</h5>
+							        <h5 class="modal-title">Creando Curso</h5>
 							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							          	<span aria-hidden="true">&times;</span>
 							        </button>
@@ -786,7 +792,7 @@
 							
 								<form action="../php/getpermissionsadmin.php" method="post" id="formcredential">
 									<div class="form-group">
-									    <label for="exampleInputEmail1">Credencial de Administrador</label>
+									    <label>Credencial de Administrador</label>
 									    <input type="text" class="form-control" name="credencial"   placeholder="Credencial Administrador">
 									    <small  class="form-text text-muted">Con la credencial podras obtener los permisos de administrador una vez cierres sesion y vuelvas a iniciar.</small>
 									  </div>
