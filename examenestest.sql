@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.8
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 01-05-2019 a las 16:15:17
+-- Tiempo de generación: 06-05-2019 a las 14:39:49
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 7.2.2
 
@@ -70,9 +70,7 @@ INSERT INTO `curso` (`COD_CURSO`, `NOMBRE_CURSO`) VALUES
 ('23DAW', '2DAW'),
 ('24DAW', '2DAW'),
 ('2DAW', 'Desarrollo de aplicaciones web'),
-('4smr', 'Desarrollo'),
-('5DAW', 'ESO'),
-('8eso', 'ESO');
+('5BACH', 'ewfWGWG');
 
 -- --------------------------------------------------------
 
@@ -122,6 +120,34 @@ INSERT INTO `fixedexams` (`ID_EXAMEN`, `ID_PREGUNTA`) VALUES
 (2, 27),
 (3, 22),
 (3, 23);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historiaalumno`
+--
+
+CREATE TABLE `historiaalumno` (
+  `ID_HISTORIA` int(11) NOT NULL,
+  `USERNAME` varchar(30) COLLATE utf16_spanish_ci NOT NULL,
+  `ID_EXAMEN` int(10) NOT NULL,
+  `FECHA` date NOT NULL,
+  `ERRORES` int(2) NOT NULL,
+  `ACIERTOS` int(2) NOT NULL,
+  `BLANCOS` int(2) NOT NULL,
+  `APROBADO` enum('true','false') COLLATE utf16_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `historiaalumno`
+--
+
+INSERT INTO `historiaalumno` (`ID_HISTORIA`, `USERNAME`, `ID_EXAMEN`, `FECHA`, `ERRORES`, `ACIERTOS`, `BLANCOS`, `APROBADO`) VALUES
+(46, 'alumno', 1, '2019-05-06', 2, 1, 0, 'false'),
+(47, 'alumno', 1, '2019-05-06', 2, 1, 0, 'false'),
+(48, 'alumno', 3, '2019-05-06', 2, 0, 0, 'false'),
+(49, 'alumno', 1, '2019-05-06', 0, 3, 0, 'true'),
+(50, 'alumno', 2, '2019-05-06', 3, 2, 1, 'false');
 
 -- --------------------------------------------------------
 
@@ -323,7 +349,7 @@ INSERT INTO `usuario` (`ID_USER`, `NOMBRE`, `APELLIDO1`, `APELLIDO2`, `DNI`, `EM
 (15, 'Alumno', 'alumno', 'alumno', '21058863t', 'alumno@gmail.com', 'alumno', '$2y$10$hNjZ8CMzxQ0G3RpGDP1Qae9uzDG4xRlkvZKGzxTNNVgHVosy7nq3q', 'ALUMNO'),
 (16, 'prueba', 'prueba', 'prueba', '99945858l', 'prueba@gmail.com', 'prueba', '$2y$10$6jP6UucTQO8cVPRs4RjuIeZlZ9ocqUMCYbypwl71cONZjuAwvujvO', 'ALUMNO'),
 (25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$Ibga4jL4bNGQkPbLs7gF8er2nLEZmMqWCUwoKmgnlRW1xjToO1RLa', 'ALUMNO'),
-(26, 'pruebavideoo', 'pruebavideoo', 'pruebavideoo', '55026589p', 'pruebavideo2tyufgiku@gmail.com', 'pruebavideoo', '$2y$10$VOixclNBd0OUjiv0fBU.h.0sP484b6lHXRWNrRpmhGyDYn3sPP.Zu', 'PROFESOR');
+(26, 'pruebavideoo', 'pruebavideoo', 'pruebavideoo', '55026589p', 'pruebavideo2tyufgiku@gmail.com', 'pruebavideoo', '$2y$10$VOixclNBd0OUjiv0fBU.h.0sP484b6lHXRWNrRpmhGyDYn3sPP.Zu', 'ALUMNO');
 
 --
 -- Índices para tablas volcadas
@@ -356,6 +382,12 @@ ALTER TABLE `fixedexams`
   ADD KEY `FK_ID_PREGUNTA_EX` (`ID_PREGUNTA`);
 
 --
+-- Indices de la tabla `historiaalumno`
+--
+ALTER TABLE `historiaalumno`
+  ADD PRIMARY KEY (`ID_HISTORIA`);
+
+--
 -- Indices de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
@@ -386,6 +418,12 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `examen`
   MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `historiaalumno`
+--
+ALTER TABLE `historiaalumno`
+  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
