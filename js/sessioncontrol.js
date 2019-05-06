@@ -36,7 +36,7 @@ $(document).ready(function() {
     $.get("../php/usuarioactive.php", function(data, estado) {
         if (estado == "success") {
             if (data != "null") {
-                $('#btnGroupDrop1').html(data)
+                $('#btnGroupDrop1').html(data);
             }
         }
     })

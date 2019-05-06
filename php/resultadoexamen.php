@@ -1,6 +1,7 @@
 <?php 
 
 include "conexion.php";
+session_start();
  $campos=$_POST['campos'];
 
  
@@ -11,6 +12,18 @@ $nombre = 'radio';
 $aciertos=0;
 $fallos = 0;
 $blancos = 0;
+
+$aprobado='';
+
+
+
+
+
+if(isset($_POST['idexamen'])){
+
+	$idexamen = $_POST['idexamen'];
+}
+$fecha = Date('Y/m/d');
 
 
 $arrayrespuestas = array();
@@ -37,9 +50,25 @@ for($i=0;$i<count($arrayrespuestas);$i++){
 	}				
 }
 
+if($aciertos >= $campos/2){
+	$aprobado = 'true';
+}else{
+	$aprobado ='false';
+}
+
+
 $blancos = $campos-($aciertos+$fallos);
+			
+			if(isset($_SESSION['alumno']) && $idexamen>0){
+				$user = $_SESSION['alumno'];
+				$stmt = $conexion->stmt_init();  
+					$sql = "INSERT INTO historiaalumno (USERNAME,ID_EXAMEN,FECHA,ERRORES,ACIERTOS,BLANCOS,APROBADO)  VALUES (?,?,?,?,?,?,?)";   
+		 			if(!$stmt->prepare($sql)) die($conexion->error);     
+		 			if(!$stmt->bind_param('sisiiis',$user,$idexamen,$fecha,$fallos,$aciertos,$blancos,$aprobado)) die($stmt->error) ;
+					if(!$stmt->execute()) die ($stmt->error);
+			}
 
-
+					
 
 
 
@@ -48,6 +77,10 @@ $data = array('aciertos' => $aciertos , 'fallos' => $fallos , 'blancos' => $blan
 header("Content-Type: application/json");
 echo json_encode($data);
 
+
+
+
+			
 
 
  ?>

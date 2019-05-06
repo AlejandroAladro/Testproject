@@ -623,6 +623,8 @@ $(document).ready(function() {
                 $('#cardresultado').hide();
                 $('#credencial').hide();
                 $('#how').hide();
+                $('#tablehistory').hide();
+
 
 
                 $('a').click(function() {
@@ -635,6 +637,12 @@ $(document).ready(function() {
                             $('#alertnopreguntas').hide();
                             $('#cardresultado').hide();
                             $('#formularioexamen').hide();
+                            $('#tablefixedexams').hide();
+                            $('#tablehistory').hide();
+
+
+
+
 
                             $.get("../php/cursos.php", function(data, estado) {
                                 if (estado == "success") {
@@ -668,7 +676,42 @@ $(document).ready(function() {
                             });
 
 
-                        } //end if hacer examen ##############################################################
+                        } else if ($(this).html() == "Historia") {
+                            $('#cardresultado').hide();
+
+                            $('#contselectprofe').hide();
+                            $('#tablehistory').show();
+
+                            $.get("../php/gethistory.php", function(data, estado) {
+                                console.log(data)
+
+                                $('#tablehistory').children('tbody').empty()
+
+                                $.each(data, function(indice, valor) {
+
+
+                                    if (valor.APROBADO == "false") {
+
+
+                                        $('#tablehistory').children('tbody').append("<tr class='table-danger'><td>" + valor.DESCRIPCION + "</td><td>" + valor.FECHA + "</td><td class='d-none d-md-table-cell'>" + valor.ACIERTOS + "</td><td class='d-none d-md-table-cell'>" + valor.ERRORES + "</td><td class='d-none d-md-table-cell'>" + valor.BLANCOS + "</td><td>" + valor.APROBADO + "</td></tr>")
+
+                                    } else {
+                                        $('#tablehistory').children('tbody').append("<tr class='table-success'><td>" + valor.DESCRIPCION + "</td><td>" + valor.FECHA + "</td><td class='d-none d-md-table-cell'>" + valor.ACIERTOS + "</td><td class='d-none d-md-table-cell'>" + valor.ERRORES + "</td><td class='d-none d-md-table-cell'>" + valor.BLANCOS + "</td><td>" + valor.APROBADO + "</td></tr>")
+                                    }
+                                })
+
+
+
+
+
+                            })
+
+
+
+
+
+
+                        } //end if historia ##############################################################
                     }) //end funcion click de a en menu alumno#############################################################################
             } else if ($(this).html() == 'Cómo Funciona') {
 
@@ -696,6 +739,8 @@ $(document).ready(function() {
                 $('#cardresultado').hide();
                 $('#credencial').hide();
                 $('#how').show();
+                $('#tablehistory').hide();
+
 
             } else if ($(this).html() == "Configuración") {
                 $('#contselectprofe').hide();
@@ -726,6 +771,8 @@ $(document).ready(function() {
                 $('#tablepreguntasexam').hide();
                 $('#elrtfixedexam1').hide();
                 $('#elrtfixedexam2').hide();
+                $('#tablehistory').hide();
+
 
                 $('a').click(function() {
 
@@ -947,6 +994,7 @@ $(document).ready(function() {
                                         $.post("../php/getanswers2.php", dato, function(data, estado) {
                                             if (estado == "success") {
                                                 $('#contenidoexamen').append("<hr>")
+                                                $('#idexamen').val(null)
                                                 $('#contenidoexamen').append("<div class='form-group mt-3'><label>-" + valor.TEXTO_P + "</label>")
                                                 $.each(data, function(indice, valor) {
                                                     $('#contenidoexamen').append("<div class='form-check my-3'><input class='form-check-input' type='radio' name='radio" + contador + "' value='" + valor.ID_RESPUESTA + "'><label class='form-check-label'>" + valor.TEXTO_R + "</label></div>")
@@ -978,7 +1026,8 @@ $(document).ready(function() {
 
         $('#formexamenaleatorio').submit(function() {
             event.preventDefault();
-
+            var usuario = ""
+            var idexamen = $('#idexamen').val()
             $.ajax({
                 type: "POST",
                 url: "../php/resultadoexamen.php",
@@ -999,6 +1048,10 @@ $(document).ready(function() {
                 }
 
             })
+
+
+
+
         })
 
 
@@ -1031,6 +1084,7 @@ $(document).ready(function() {
         })
 
 
+
         $('body').on("submit", "#makefixedexam", function() {
             event.preventDefault();
 
@@ -1041,24 +1095,30 @@ $(document).ready(function() {
                 data: $(this).serialize(),
                 success: function(respuesta) {
 
-                    console.log(respuesta)
+
 
                     $('#tablefixedexams').hide();
                     $('#formularioexamen').show();
                     $('#contenidoexamen').empty()
 
+
+
+
+
                     $.each(respuesta, function(indice, valor) {
                         datos = {
                             'codigo': valor.ID_PREGUNTA
                         }
+                        $('#idexamen').val(valor.ID_EXAMEN);
 
 
                         $.post("../php/getdataquestion.php", datos, function(data, estado) {
                             if (estado == 'success') {
-                                console.log(data)
-                                veces = 0;
-                                contador = 1;
+
+
                                 $.each(data, function(indice, valor) {
+                                    veces = 0;
+                                    contador = 1;
                                     var dato = {
                                         "codigo": valor.ID_PREGUNTA
                                     }
