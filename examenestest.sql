@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 22-04-2019 a las 16:52:22
+-- Tiempo de generación: 01-05-2019 a las 16:15:17
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 7.2.2
 
@@ -67,7 +67,12 @@ CREATE TABLE `curso` (
 INSERT INTO `curso` (`COD_CURSO`, `NOMBRE_CURSO`) VALUES
 ('1ºDAW', 'Desarrollo de palicaciones web'),
 ('1SMR', 'Sistemas microinformáticos y redes'),
-('2DAW', 'Desarrollo de aplicaciones web');
+('23DAW', '2DAW'),
+('24DAW', '2DAW'),
+('2DAW', 'Desarrollo de aplicaciones web'),
+('4smr', 'Desarrollo'),
+('5DAW', 'ESO'),
+('8eso', 'ESO');
 
 -- --------------------------------------------------------
 
@@ -76,9 +81,47 @@ INSERT INTO `curso` (`COD_CURSO`, `NOMBRE_CURSO`) VALUES
 --
 
 CREATE TABLE `examen` (
-  `ID_EXAMEN` int(3) NOT NULL,
-  `ID_USER` int(4) NOT NULL
+  `ID_EXAMEN` int(10) NOT NULL,
+  `ID_ASIGNATURA` varchar(5) COLLATE utf16_spanish_ci NOT NULL,
+  `DESCRIPCION` varchar(500) COLLATE utf16_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `examen`
+--
+
+INSERT INTO `examen` (`ID_EXAMEN`, `ID_ASIGNATURA`, `DESCRIPCION`) VALUES
+(1, 'BDD', 'Examen Prueba fijar'),
+(2, 'BDD', 'Prueba 2 fijando examen'),
+(3, 'BDD', 'prueba 3 fijar exmen');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fixedexams`
+--
+
+CREATE TABLE `fixedexams` (
+  `ID_EXAMEN` int(11) NOT NULL,
+  `ID_PREGUNTA` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `fixedexams`
+--
+
+INSERT INTO `fixedexams` (`ID_EXAMEN`, `ID_PREGUNTA`) VALUES
+(1, 25),
+(1, 26),
+(1, 27),
+(2, 22),
+(2, 23),
+(2, 24),
+(2, 25),
+(2, 26),
+(2, 27),
+(3, 22),
+(3, 23);
 
 -- --------------------------------------------------------
 
@@ -120,18 +163,10 @@ INSERT INTO `pregunta` (`ID_PREGUNTA`, `TEXTO_P`, `COD_ASIGNATURA`) VALUES
 (21, '21', 'DIW'),
 (22, 'Hola Que tal?', 'BDD'),
 (23, 'Hola Que tal?Hola Que tal?Hola Que tal?', 'BDD'),
-(24, 'wgeegergergaerge rgardgadrgerggggggggg gggggg ggggggggg gggggggg gggggggg gggggggggggg ggggggggggggggggggggggg ggggggggg ggggggggg ggggggggggggggg', 'BDD');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `preguntasofrexam`
---
-
-CREATE TABLE `preguntasofrexam` (
-  `ID_EXAMEN` int(3) NOT NULL,
-  `ID_PREGUNTA` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+(24, 'wgeegergergaerge rgardgadrgerggggggggg gggggg ggggggggg gggggggg gggggggg gggggggggggg ggggggggggggggggggggggg ggggggggg ggggggggg ggggggggggggggg', 'BDD'),
+(25, 'Cual Es la capital de España?', 'BDD'),
+(26, 'hola german', 'BDD'),
+(27, 'con texarea pregunta', 'BDD');
 
 -- --------------------------------------------------------
 
@@ -246,7 +281,19 @@ INSERT INTO `respuesta` (`ID_RESPUESTA`, `ID_PREGUNTA`, `TEXTO_R`, `CORRECTA`) V
 (93, 24, 'gergeaqgergergergerukuykfy uru kryukuyky ky uyk ky k \r\n ki kk \r\n \r\n ik i k iykryuj mu \r\n \r\n \r\n \r\n u jrujujrujrujugergergergergergergergergergergergergerrrrrrrrrrrrrrrrrrrrrrrgerggw43t2', 'true'),
 (94, 24, 'ergergergqagergeqrgheghhrtwhrthgbadfsgbertgheqrgeqrgeqrgergerqgerg', 'false'),
 (95, 24, 'rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr', 'false'),
-(96, 24, 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjtyjetyjrhjwhy6w4t5w 5 gewr gewrg    rtwhrtrt hrth rrth hy ythwty htyh h h r hwrjjwrrhjw r', 'false');
+(96, 24, 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjtyjetyjrhjwhy6w4t5w 5 gewr gewrg    rtwhrtrt hrth rrth hy ythwty htyh h h r hwrjjwrrhjw r', 'false'),
+(97, 25, 'Madrid', 'true'),
+(98, 25, 'Barcelona', 'false'),
+(99, 25, 'Oviedo', 'false'),
+(100, 25, 'san Sebastian', 'false'),
+(101, 26, 'hola', 'false'),
+(102, 26, 'gol', 'false'),
+(103, 26, 'lol', 'false'),
+(104, 26, '12345678', 'true'),
+(105, 27, 'prueba texarea1', 'false'),
+(106, 27, 'prueba texarea2', 'true'),
+(107, 27, 'prueba texarea3', 'false'),
+(108, 27, 'prueba texarea4', 'false');
 
 -- --------------------------------------------------------
 
@@ -276,7 +323,7 @@ INSERT INTO `usuario` (`ID_USER`, `NOMBRE`, `APELLIDO1`, `APELLIDO2`, `DNI`, `EM
 (15, 'Alumno', 'alumno', 'alumno', '21058863t', 'alumno@gmail.com', 'alumno', '$2y$10$hNjZ8CMzxQ0G3RpGDP1Qae9uzDG4xRlkvZKGzxTNNVgHVosy7nq3q', 'ALUMNO'),
 (16, 'prueba', 'prueba', 'prueba', '99945858l', 'prueba@gmail.com', 'prueba', '$2y$10$6jP6UucTQO8cVPRs4RjuIeZlZ9ocqUMCYbypwl71cONZjuAwvujvO', 'ALUMNO'),
 (25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$Ibga4jL4bNGQkPbLs7gF8er2nLEZmMqWCUwoKmgnlRW1xjToO1RLa', 'ALUMNO'),
-(26, 'pruebavideoo', 'pruebavideoo', 'pruebavideoo', '55026589p', 'pruebavideo2tyufgiku@gmail.com', 'pruebavideoo', '$2y$10$VOixclNBd0OUjiv0fBU.h.0sP484b6lHXRWNrRpmhGyDYn3sPP.Zu', 'ADMIN');
+(26, 'pruebavideoo', 'pruebavideoo', 'pruebavideoo', '55026589p', 'pruebavideo2tyufgiku@gmail.com', 'pruebavideoo', '$2y$10$VOixclNBd0OUjiv0fBU.h.0sP484b6lHXRWNrRpmhGyDYn3sPP.Zu', 'PROFESOR');
 
 --
 -- Índices para tablas volcadas
@@ -300,7 +347,13 @@ ALTER TABLE `curso`
 --
 ALTER TABLE `examen`
   ADD PRIMARY KEY (`ID_EXAMEN`),
-  ADD KEY `fk_userid` (`ID_USER`);
+  ADD KEY `FK_ID_ASIG_EX` (`ID_ASIGNATURA`);
+
+--
+-- Indices de la tabla `fixedexams`
+--
+ALTER TABLE `fixedexams`
+  ADD KEY `FK_ID_PREGUNTA_EX` (`ID_PREGUNTA`);
 
 --
 -- Indices de la tabla `pregunta`
@@ -308,13 +361,6 @@ ALTER TABLE `examen`
 ALTER TABLE `pregunta`
   ADD PRIMARY KEY (`ID_PREGUNTA`),
   ADD KEY `FK_COD_ASIG` (`COD_ASIGNATURA`);
-
---
--- Indices de la tabla `preguntasofrexam`
---
-ALTER TABLE `preguntasofrexam`
-  ADD PRIMARY KEY (`ID_EXAMEN`,`ID_PREGUNTA`) USING BTREE,
-  ADD KEY `FK_PREGUNTA_ID_PFE` (`ID_PREGUNTA`);
 
 --
 -- Indices de la tabla `respuesta`
@@ -339,19 +385,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `ID_EXAMEN` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -373,20 +419,19 @@ ALTER TABLE `asignatura`
 -- Filtros para la tabla `examen`
 --
 ALTER TABLE `examen`
-  ADD CONSTRAINT `fk_userid` FOREIGN KEY (`ID_USER`) REFERENCES `usuario` (`ID_USER`);
+  ADD CONSTRAINT `FK_ID_ASIG_EX` FOREIGN KEY (`ID_ASIGNATURA`) REFERENCES `asignatura` (`COD_ASIGNATURA`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `fixedexams`
+--
+ALTER TABLE `fixedexams`
+  ADD CONSTRAINT `FK_ID_PREGUNTA_EX` FOREIGN KEY (`ID_PREGUNTA`) REFERENCES `pregunta` (`ID_PREGUNTA`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
   ADD CONSTRAINT `FK_COD_ASIG` FOREIGN KEY (`COD_ASIGNATURA`) REFERENCES `asignatura` (`COD_ASIGNATURA`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `preguntasofrexam`
---
-ALTER TABLE `preguntasofrexam`
-  ADD CONSTRAINT `FK_EXAMEN_ID_PFE` FOREIGN KEY (`ID_EXAMEN`) REFERENCES `examen` (`ID_EXAMEN`),
-  ADD CONSTRAINT `FK_PREGUNTA_ID_PFE` FOREIGN KEY (`ID_PREGUNTA`) REFERENCES `pregunta` (`ID_PREGUNTA`);
 
 --
 -- Filtros para la tabla `respuesta`
