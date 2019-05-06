@@ -544,6 +544,7 @@ $(document).ready(function() {
                                 var datos = {
                                     "codigo": codigo
                                 };
+<<<<<<< HEAD
 
                                 $.post("../php/asignaturas.php", datos, function(data, estado) {
                                     if (estado == "success") {
@@ -580,6 +581,44 @@ $(document).ready(function() {
                             })
 
 
+=======
+
+                                $.post("../php/asignaturas.php", datos, function(data, estado) {
+                                    if (estado == "success") {
+
+                                        $('#selectfixedexamasig').empty();
+                                        $('#selectfixedexamasig').append("<option selected='selected'>Seleccione Asignatura</option>");
+
+                                        $.each(data, function(indice, valor) {
+                                            $('#selectfixedexamasig').append("<option value='" + valor.COD_ASIGNATURA + "'>" + valor.COD_ASIGNATURA + "</option>")
+                                        })
+                                    }
+                                });
+                            })
+
+                            $('#selectfixedexamasig').change(function() {
+                                $('#tablepreguntasexam').show();
+                                $('#elrtfixedexam1').hide();
+                                $('#elrtfixedexam2').hide();
+                                var codigo = $(this).val();
+                                $('#codasigfixex').val(codigo);
+                                var datos = {
+                                    "codigo": codigo
+                                };
+
+                                $.post("../php/questions.php", datos, function(data, estado) {
+                                    if (estado == "success") {
+                                        $('#tablepreguntasexam').children('tbody').empty();
+
+                                        $.each(data, function(indice, valor) {
+                                            $('#tablepreguntasexam').children('tbody').append("<tr><td>" + valor.ID_PREGUNTA + "</td><td>" + valor.TEXTO_P + "</td><td><div class='form-check'><input class='form-check-input' type='checkbox' value='" + valor.ID_PREGUNTA + "' name='idpreguntas[]'></div></td></tr>");
+                                        })
+                                    }
+                                })
+                            })
+
+
+>>>>>>> 8f9e390dfbcec62e4ad5d5dab18badae2ebec86f
                             $('#formfixedexam').submit(function() {
                                 event.preventDefault();
 
@@ -984,6 +1023,7 @@ $(document).ready(function() {
                 url: "../php/resultadoexamen.php",
                 data: $(this).serialize(),
                 success: function(respuesta) {
+<<<<<<< HEAD
 
 
                     $('#formularioexamen').hide();
@@ -1090,11 +1130,30 @@ $(document).ready(function() {
                 }
 
             })
+=======
+>>>>>>> 8f9e390dfbcec62e4ad5d5dab18badae2ebec86f
 
+
+                    $('#formularioexamen').hide();
+                    $('#cardresultado').show();
+
+                    $('#aciertos').html("Aciertos: " + respuesta.aciertos);
+                    $('#fallos').html("Fallos: " + respuesta.fallos);
+                    $('#blancos').html("Blancos: " + respuesta.blancos);
+
+
+
+
+                }
+
+            })
         })
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 8f9e390dfbcec62e4ad5d5dab18badae2ebec86f
     }) //end of all
