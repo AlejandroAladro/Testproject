@@ -15,7 +15,7 @@ $(document).ready(function() {
         //##########################################################################################
 
 
-    //cunado entramos en la vista login la ventana activa sera la del login y no la del registro 		
+    //cunado entramos en la vista login la ventana activa sera la del login y no la del registro        
     $('#entrar').addClass("active")
         //el formulario de registro se oculta
     $('#registro').hide();
@@ -35,8 +35,6 @@ $(document).ready(function() {
                 $('#registro').show("slow");
                 $('#login').hide();
                 $('#exito').hide();
-                $('#footer').removeClass('fixed-bottom');
-                $('#footer').addClass('sticky-bottom');
 
                 //##########################################################################################
                 //si pinchamos en el login...
@@ -47,8 +45,7 @@ $(document).ready(function() {
                 $('#registro').hide();
                 $('#login').show("slow");
                 $('#exito').hide();
-                $('#footer').removeClass('sticky-bottom');
-                $('#footer').addClass('fixed-bottom');
+
 
             }
         })
