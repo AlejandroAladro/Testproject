@@ -684,12 +684,9 @@ $(document).ready(function() {
 
                             $('#contselectprofe').hide();
                             $('#tablehistory').show();
-<<<<<<< HEAD
                             $('#formularioexamen').hide();
                             $('#tableasignaturas').hide();
                             $('#tablefixedexams').hide();
-=======
->>>>>>> 8848ff41941c4d312eaa37776cab40c4c36d476d
 
                             $.get("../php/gethistory.php", function(data, estado) {
                                 console.log(data)
@@ -709,22 +706,8 @@ $(document).ready(function() {
                                     }
                                 })
 
-<<<<<<< HEAD
                             })
 
-=======
-
-
-
-
-                            })
-
-
-
-
-
-
->>>>>>> 8848ff41941c4d312eaa37776cab40c4c36d476d
                         } //end if historia ##############################################################
                     }) //end funcion click de a en menu alumno#############################################################################
             } else if ($(this).html() == 'Cómo Funciona') {
@@ -1004,11 +987,7 @@ $(document).ready(function() {
                                             if (estado == "success") {
                                                 $('#contenidoexamen').append("<hr>")
                                                 $('#idexamen').val(null)
-<<<<<<< HEAD
                                                 $('#contenidoexamen').append("<div class='form-group mt-3 bg-light'><label>" + contador + "- " + valor.TEXTO_P + "</label>")
-=======
-                                                $('#contenidoexamen').append("<div class='form-group mt-3'><label>-" + valor.TEXTO_P + "</label>")
->>>>>>> 8848ff41941c4d312eaa37776cab40c4c36d476d
                                                 $.each(data, function(indice, valor) {
                                                     $('#contenidoexamen').append("<div class='custom-control custom-radio my-3'><input class='custom-control-input' id='radio" + contador3 + "' type='radio' name='radio" + contador + "' value='" + valor.ID_RESPUESTA + "'><label class='custom-control-label' for='radio" + contador3 + "'>" + valor.TEXTO_R + "</label></div>")
                                                     veces++;
@@ -1054,10 +1033,6 @@ $(document).ready(function() {
                     $('#blancos').html("Blancos: " + respuesta.blancos);
                 }
             })
-
-
-
-
         })
 
 
@@ -1086,11 +1061,6 @@ $(document).ready(function() {
 
         })
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 8848ff41941c4d312eaa37776cab40c4c36d476d
         $('body').on("submit", "#makefixedexam", function() {
             event.preventDefault();
 
@@ -1100,19 +1070,9 @@ $(document).ready(function() {
                 url: "../php/getquestionforexam.php",
                 data: $(this).serialize(),
                 success: function(respuesta) {
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 8848ff41941c4d312eaa37776cab40c4c36d476d
                     $('#tablefixedexams').hide();
                     $('#formularioexamen').show();
                     $('#contenidoexamen').empty()
-
-
-
-
 
                     $.each(respuesta, function(indice, valor) {
                         datos = {
@@ -1125,16 +1085,9 @@ $(document).ready(function() {
                         $.post("../php/getdataquestion.php", datos, function(data, estado) {
                             if (estado == 'success') {
 
-<<<<<<< HEAD
                                 contidsfors = 20;
                                 $.each(data, function(indice, valor) {
 
-=======
-
-                                $.each(data, function(indice, valor) {
-                                    veces = 0;
-                                    contador = 1;
->>>>>>> 8848ff41941c4d312eaa37776cab40c4c36d476d
                                     var dato = {
                                         "codigo": valor.ID_PREGUNTA
                                     }
