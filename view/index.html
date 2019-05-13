@@ -59,13 +59,13 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#">Cómo Funciona</a>
 						</li>
-						<li class="nav-item alumno ">
+						<li class="nav-item alumno hidden">
 							<a class="nav-link" href="#">Alumno</a>
 						</li>
-						<li class="nav-item profesor">
+						<li class="nav-item profesor hidden">
 							<a class="nav-link" href="#">Opciones</a>
 						</li>
-						<li class="nav-item extra">
+						<li class="nav-item extra hidden">
 							<a class="nav-link" href="#">Administrar</a>
 						</li>
 					</ul>
@@ -108,7 +108,7 @@
 		<!-- ###############################################################################################################################################################-->
 		<!-- ###############################################################################################################################################################-->
 		<!-- ##################### CONTENEDOR DE VIDEOS SEGUNDA PESTAÑA DEL MENU #####################################################################-->
-		<div id="how">
+		<div id="how" class="hidden">
 			<div class="row d-flex px-5" >
 				<div class=" col-12 col-md-6 col-lg-4 mt-5">
 					<p class="h5 mb-4">Registro Alumno</p>
@@ -220,7 +220,7 @@
 			<!-- ###############################################################################################################################################################-->
 			<!-- ###############################################################################################################################################################-->
 			<!-- ############################################ SELECT PARA ELEGIR CURSO ##########################################################################-->
-			<div id="contselectprofe">
+			<div id="contselectprofe" class="hidden">
 				<div class="d-flex flex-column" >
 					<div class='col-6 align-self-center mt-3'>
 						<div class='form-group'>
@@ -234,7 +234,7 @@
 			<!-- ###############################################################################################################################################################-->
 			<!-- ###############################################################################################################################################################-->
 			<!-- ############################## SELECT PARA SELECCIONAR CURSO AL INSERTAR PREGUNTA  #####################################################################################-->
-			<div  id="selectcursopregunt">
+			<div  id="selectcursopregunt" class="hidden">
 				<div class="d-flex flex-column">
 					<div class='col-6 align-self-center mt-3'>
 						<div class='form-group'>
@@ -247,7 +247,7 @@
 			</div>
 			<!-- ###############################################################################################################################################################-->
 			<!-- ##################################### SELECT ESCOGER ASIGNATURA ###############################################################################-->
-			<div id="selectasig">
+			<div id="selectasig" class="hidden">
 				<div class="d-flex flex-column">
 					<div class='col-6 align-self-center mt-3'>
 						<div class='form-group'>
@@ -261,7 +261,7 @@
 			<!-- ###############################################################################################################################################################-->
 			<!-- ###############################################################################################################################################################-->
 			<!-- ################################## SELECT PARA ESCOGER CURSO AL EDITAR ##################################################################################-->
-			<div  id="selecteditpreguncurs">
+			<div  id="selecteditpreguncurs" class="hidden">
 				<div class="d-flex flex-column">
 					<div class='col-6 align-self-center mt-3'>
 						<div class='form-group'>
@@ -275,7 +275,7 @@
 			<!-- ###############################################################################################################################################################-->
 			<!-- ###############################################################################################################################################################-->
 			<!-- ################################## SELECT PARA ESCOGER CURSO AL FIJAR EXAMEN ##################################################################################-->
-			<div  id="selectcursofixexamen">
+			<div  id="selectcursofixexamen" class="hidden">
 				<div class="d-flex flex-column">
 					<div class='col-6 align-self-center mt-3'>
 						<div class='form-group'>
@@ -289,7 +289,7 @@
 			<!-- ###############################################################################################################################################################-->
 			<!-- ###############################################################################################################################################################-->
 			<!-- ############################# CAJA PARA SELECCIONAR ASIGNATURA AL EDITAR ##########################################################################-->
-			<div id="seleceditpregunasig">
+			<div id="seleceditpregunasig" class="hidden">
 				<div class="d-flex flex-column">
 					<div class='col-6 align-self-center mt-3'>
 						<div class='form-group'>
@@ -303,7 +303,7 @@
 			<!-- ###############################################################################################################################################################-->
 			<!-- ###############################################################################################################################################################-->
 			<!-- ############################# CAJA PARA SELECCIONAR ASIGNATURA AL FIJAR EXAM ##########################################################################-->
-			<div id="selectfixexamasig">
+			<div id="selectfixexamasig" class="hidden">
 				<div class="d-flex flex-column">
 					<div class='col-6 align-self-center mt-3'>
 						<div class='form-group'>
@@ -367,7 +367,7 @@
 		<!-- ###############################################################################################################################################################-->
 		<!-- ###############################################################################################################################################################-->
 		<!-- ################################### TABLA PARA MOSTRAR LAS PREGUNTAS ############################################################################-->
-		<table class='table table-striped table-hover' id="tablepreguntas">
+		<table class='table table-striped table-hover hidden' id="tablepreguntas">
 			<thead>
 				<tr class="table-primary">
 					<th scope='col'>Cod_Pregunta</th>
@@ -404,7 +404,7 @@
 						Pregunta creada con éxito.
 					</div>
 					
-					<form action="../php/createquestion.php" method="post" id="formulariopreguntas">
+					<form action="../php/createquestion.php" method="post" id="formulariopreguntas" class="hidden">
 						<div class="form-group">
 							<label>Texto Pregunta</label>
 							<input type="hidden" name="codigoasig" id="codigoasig" value="">
@@ -468,7 +468,7 @@
 		<!-- ###############################################################################################################################################################-->
 		<!-- ###############################################################################################################################################################-->
 		<!-- ############################################ FORMULARIO PARA EDITAR PREGUNTA Y RESPUESTA ##################################################################-->
-		<div id="formularioeditpregunta">
+		<div id="formularioeditpregunta" class="hidden">
 			<div class="d-flex flex-column">
 				<div class='col-8 align-self-center my-3'>
 					<div class="alert alert-success" id="alertpreguntaedit" role="alert">
@@ -542,7 +542,7 @@
 		<!-- ###############################################################################################################################################################-->
 		<!-- ###############################################################################################################################################################-->
 		<!-- ######################################### FORMULARIO DEL EXAMEN #############################################################-->
-		<div id="formularioexamen" >
+		<div id="formularioexamen" class="hidden">
 			<div class="d-flex flex-column flex-wrap" >
 				<div class='col my-3' >
 					
@@ -566,7 +566,7 @@
 		<!-- ###############################################################################################################################################################-->
 		<!-- ###############################################################################################################################################################-->
 		<!-- ########################################### Caja resultados del examen ################################################################-->
-		<div id="cardresultado">
+		<div id="cardresultado" class="hidden">
 			<div class="d-flex flex-column " >
 				<div class='col-6 align-self-center my-3'>
 					<div class="card" style="width: 18rem;" >
@@ -726,7 +726,7 @@ Ese curso ya existe.
 <!-- ###############################################################################################################################################################-->
 <!-- ###############################################################################################################################################################-->
 <!-- ########################## FORMULARIO PARA INSERTAR CREDENCIAL ####################################################################################-->
-<div id="credencial">
+<div id="credencial" class="hidden">
 <div class="d-flex flex-column " >
 <div class='col-8 align-self-center mt-3' >
 <form action="../php/getpermissionsadmin.php" method="post" id="formcredential">
@@ -751,7 +751,7 @@ Credencial correcta, reinicia sesion para ver los cambios.
 <!-- ###############################################################################################################################################################-->
 <!-- ################################### FORMULARIO PARA CAMBIAR DATOS DE PERFIL ############################################################################-->
 <div class="d-flex flex-column" >
-<div class='col-8 align-self-center mt-3' id="datosperfil">
+<div class='col-8 align-self-center mt-3 hidden' id="datosperfil">
 <div class='alert alert-success' id="alertedit" role='alert'>Datos cambiados con éxito</div>
 <form action="editperfil.php" method="post" id="formperfil">
 <input type="hidden" name="username" id="username">
@@ -788,7 +788,7 @@ Credencial correcta, reinicia sesion para ver los cambios.
 <!-- ###############################################################################################################################################################-->
 <!-- ##################################### FORMULARIO PARA CMABIAR LA CONTRASEÑA ################################################################-->
 <div class="d-flex flex-column">
-<div class='col-8 align-self-center mt-3' id="cambiarpass">
+<div class='col-8 align-self-center mt-3 hidden' id="cambiarpass">
 <div class='alert alert-success mt-3' id="alertpassedit" role='alert'>Contraseña cambiada con éxito</div>
 <form action="../php/validpass.php" method="post" id="formpass">
 <div class="form-group">

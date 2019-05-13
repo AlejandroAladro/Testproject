@@ -6,9 +6,15 @@ body{
 	background-image: url(../images/fondo2.jpg);
 		}
 
-.alert,.table,#selectfixexamasig,#selectcursofixexamen,#credencial,#how,#createcurso,#datosperfil,#cambiarpass,.lista,.tablaadmin,.profesor,.alumno,.extra,#contselectprofe,#createasignatura,#selectcursopregunt,#selectasig,#formulariopreguntas,#seleceditpregunasig,#selecteditpreguncurs,#tablepreguntas,#formularioeditpregunta,#formularioexamen,#cardresultado{
+/*.alert,.table,#selectfixexamasig,#selectcursofixexamen,#credencial,#how,#createcurso,#datosperfil,#cambiarpass,.lista,.tablaadmin,.profesor,.alumno,.extra,#contselectprofe,#createasignatura,#selectcursopregunt,#selectasig,#formulariopreguntas,#seleceditpregunasig,#selecteditpreguncurs,#tablepreguntas,#formularioeditpregunta,#formularioexamen,#cardresultado{
 	display: none;
+}*/
+
+.hidden,.lista,.table,.alert{
+	display:none;
 }
+
+
 
 
 
