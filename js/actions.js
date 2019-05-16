@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
         $('body').on("submit", "#formulariopreguntas", function() {
             event.preventDefault();
             $.ajax({
@@ -389,6 +391,8 @@ $(document).ready(function() {
 
                             $('#selecteditpreguncurso').change(function() {
                                 $('#seleceditpregunasig').show();
+                                $('#formulariopreguntasedit').hide();
+                                $('#alertpreguntaedit').hide();
                                 var codigo = $(this).val();
                                 var datos = {
                                     "codigo": codigo
@@ -409,6 +413,8 @@ $(document).ready(function() {
 
                             $('#seleceditpregunasign').change(function() {
                                 $('#tablepreguntas').show();
+                                $('#formulariopreguntasedit').hide();
+                                $('#alertpreguntaedit').hide();
                                 var codigo = $(this).val();
                                 var datos = {
                                     "codigo": codigo
@@ -457,6 +463,8 @@ $(document).ready(function() {
 
                                 $('#tablepreguntas').hide();
                                 $('#formularioeditpregunta').show();
+                                $('#formulariopreguntasedit').show();
+                                $('#alertpreguntaedit').hide();
 
                                 $('body').on("submit", '#getrespuestas', function() {
                                     event.preventDefault();
@@ -985,9 +993,9 @@ $(document).ready(function() {
                                         }
                                         $.post("../php/getanswers2.php", dato, function(data, estado) {
                                             if (estado == "success") {
-                                                $('#contenidoexamen').append("<hr>")
+                                                
                                                 $('#idexamen').val(null)
-                                                $('#contenidoexamen').append("<div class='form-group mt-3 bg-light'><label>" + contador + "- " + valor.TEXTO_P + "</label>")
+                                                $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-light'><label>" + contador + "- " + valor.TEXTO_P + "</label>")
                                                 $.each(data, function(indice, valor) {
                                                     $('#contenidoexamen').append("<div class='custom-control custom-radio my-3'><input class='custom-control-input' id='radio" + contador3 + "' type='radio' name='radio" + contador + "' value='" + valor.ID_RESPUESTA + "'><label class='custom-control-label' for='radio" + contador3 + "'>" + valor.TEXTO_R + "</label></div>")
                                                     veces++;
@@ -998,6 +1006,7 @@ $(document).ready(function() {
                                                         contador++
                                                     }
                                                 })
+                                                $('#contenidoexamen').append("<hr>")
                                             }
                                         })
                                     })
@@ -1093,8 +1102,8 @@ $(document).ready(function() {
                                     }
                                     $.post("../php/getanswers2.php", dato, function(data, estado) {
                                         if (estado == "success") {
-                                            $('#contenidoexamen').append("<hr>")
-                                            $('#contenidoexamen').append("<div class='form-group mt-3 bg-light'><label>" + numpregun + "- " + valor.TEXTO_P + "</label>")
+                                            
+                                            $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-light'><label>" + numpregun + "- " + valor.TEXTO_P + "</label>")
                                             $.each(data, function(indice, valor) {
 
                                                 $('#contenidoexamen').append("<div class='custom-control custom-radio my-3'><input class='custom-control-input' id='radio" + contidsfors + "' type='radio' name='radio" + numpregun + "' value='" + valor.ID_RESPUESTA + "'><label class='custom-control-label' for='radio" + contidsfors + "'>" + valor.TEXTO_R + "</label></div>")
@@ -1106,6 +1115,7 @@ $(document).ready(function() {
                                                     numpregun++
                                                 }
                                             })
+                                            $('#contenidoexamen').append("<hr>")
                                         }
                                     })
                                 })
@@ -1121,5 +1131,15 @@ $(document).ready(function() {
             })
 
         })
+
+    $("body").on("click",":radio",function (e) {
+        var radio=$(this); 
+        if (radio.is(".seleccionado")) { 
+            radio.prop("checked",false).removeClass("seleccionado");
+            return;
+        }
+        $("input:radio[name='"+radio.prop("name")+"'].seleccionado").removeClass("seleccionado");
+        radio.addClass("seleccionado");
+    });
 
     }) //end of all

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.8
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 01-05-2019 a las 16:15:17
--- Versión del servidor: 5.7.19
--- Versión de PHP: 7.2.2
+-- Servidor: localhost
+-- Tiempo de generación: 16-05-2019 a las 11:58:24
+-- Versión del servidor: 5.7.26-0ubuntu0.16.04.1
+-- Versión de PHP: 7.0.33-0ubuntu0.16.04.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -67,12 +65,7 @@ CREATE TABLE `curso` (
 INSERT INTO `curso` (`COD_CURSO`, `NOMBRE_CURSO`) VALUES
 ('1ºDAW', 'Desarrollo de palicaciones web'),
 ('1SMR', 'Sistemas microinformáticos y redes'),
-('23DAW', '2DAW'),
-('24DAW', '2DAW'),
-('2DAW', 'Desarrollo de aplicaciones web'),
-('4smr', 'Desarrollo'),
-('5DAW', 'ESO'),
-('8eso', 'ESO');
+('2DAW', 'Desarrollo de aplicaciones web');
 
 -- --------------------------------------------------------
 
@@ -93,7 +86,11 @@ CREATE TABLE `examen` (
 INSERT INTO `examen` (`ID_EXAMEN`, `ID_ASIGNATURA`, `DESCRIPCION`) VALUES
 (1, 'BDD', 'Examen Prueba fijar'),
 (2, 'BDD', 'Prueba 2 fijando examen'),
-(3, 'BDD', 'prueba 3 fijar exmen');
+(3, 'BDD', 'prueba 3 fijar exmen'),
+(4, 'BDD', 'hoy dos preugntas'),
+(5, 'BDD', 'cambiando la base de datos'),
+(6, 'BDD', 'probando base de datos 2'),
+(7, 'BDD', 'The Final Exam');
 
 -- --------------------------------------------------------
 
@@ -121,7 +118,50 @@ INSERT INTO `fixedexams` (`ID_EXAMEN`, `ID_PREGUNTA`) VALUES
 (2, 26),
 (2, 27),
 (3, 22),
-(3, 23);
+(3, 23),
+(4, 27),
+(4, 28),
+(5, 28),
+(6, 27),
+(6, 28),
+(7, 26),
+(7, 27),
+(7, 28),
+(7, 29);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historiaalumno`
+--
+
+CREATE TABLE `historiaalumno` (
+  `ID_HISTORIA` int(11) NOT NULL,
+  `USERNAME` varchar(30) COLLATE utf16_spanish_ci NOT NULL,
+  `ID_EXAMEN` int(10) NOT NULL,
+  `FECHA` date NOT NULL,
+  `ERRORES` int(2) NOT NULL,
+  `ACIERTOS` int(2) NOT NULL,
+  `BLANCOS` int(2) NOT NULL,
+  `APROBADO` enum('true','false') COLLATE utf16_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `historiaalumno`
+--
+
+INSERT INTO `historiaalumno` (`ID_HISTORIA`, `USERNAME`, `ID_EXAMEN`, `FECHA`, `ERRORES`, `ACIERTOS`, `BLANCOS`, `APROBADO`) VALUES
+(46, 'alumno', 1, '2019-05-06', 2, 1, 0, 'false'),
+(47, 'alumno', 1, '2019-05-06', 2, 1, 0, 'false'),
+(48, 'alumno', 3, '2019-05-06', 2, 0, 0, 'false'),
+(49, 'alumno', 1, '2019-05-06', 0, 3, 0, 'true'),
+(50, 'alumno', 2, '2019-05-06', 3, 2, 1, 'false'),
+(51, 'alumno', 4, '2019-05-16', 0, 0, 2, 'false'),
+(52, 'alumno', 4, '2019-05-16', 0, 1, 1, 'true'),
+(53, 'alumno', 1, '2019-05-16', 0, 2, 1, 'true'),
+(54, 'alumno', 5, '2019-05-16', 0, 1, 0, 'true'),
+(55, 'alumno', 6, '2019-05-16', 1, 1, 0, 'true'),
+(56, 'alumno', 7, '2019-05-16', 1, 2, 1, 'true');
 
 -- --------------------------------------------------------
 
@@ -166,7 +206,9 @@ INSERT INTO `pregunta` (`ID_PREGUNTA`, `TEXTO_P`, `COD_ASIGNATURA`) VALUES
 (24, 'wgeegergergaerge rgardgadrgerggggggggg gggggg ggggggggg gggggggg gggggggg gggggggggggg ggggggggggggggggggggggg ggggggggg ggggggggg ggggggggggggggg', 'BDD'),
 (25, 'Cual Es la capital de España?', 'BDD'),
 (26, 'hola german', 'BDD'),
-(27, 'con texarea pregunta', 'BDD');
+(27, 'con texarea pregunta', 'BDD'),
+(28, '¿Como caga el burro?', 'BDD'),
+(29, 'base cambiada', 'BDD');
 
 -- --------------------------------------------------------
 
@@ -272,7 +314,7 @@ INSERT INTO `respuesta` (`ID_RESPUESTA`, `ID_PREGUNTA`, `TEXTO_R`, `CORRECTA`) V
 (84, 21, '21', 'false'),
 (85, 22, 'muy bien', 'false'),
 (86, 22, 'mal', 'false'),
-(87, 22, 'muy mal', 'true'),
+(87, 22, 'espectacular', 'true'),
 (88, 22, 'bien', 'false'),
 (89, 23, 'muy bien', 'false'),
 (90, 23, 'mal', 'true'),
@@ -293,7 +335,15 @@ INSERT INTO `respuesta` (`ID_RESPUESTA`, `ID_PREGUNTA`, `TEXTO_R`, `CORRECTA`) V
 (105, 27, 'prueba texarea1', 'false'),
 (106, 27, 'prueba texarea2', 'true'),
 (107, 27, 'prueba texarea3', 'false'),
-(108, 27, 'prueba texarea4', 'false');
+(108, 27, 'prueba texarea4', 'false'),
+(109, 28, 'cudrado', 'false'),
+(110, 28, 'redondo', 'false'),
+(111, 28, 'amarillo', 'true'),
+(112, 28, 'triangular', 'false'),
+(113, 29, 'base cambiada 1', 'false'),
+(114, 29, 'base cambiada 2', 'false'),
+(115, 29, 'base cambiada 3', 'true'),
+(116, 29, 'base cambiada 4', 'false');
 
 -- --------------------------------------------------------
 
@@ -318,12 +368,12 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID_USER`, `NOMBRE`, `APELLIDO1`, `APELLIDO2`, `DNI`, `EMAIL`, `USERNAME`, `PASSWORD`, `TIPO`) VALUES
-(12, 'Admin', 'admin', 'admin', '45263321l', 'admin@gmail.com', 'admin', '$2y$10$dGeBIZ1xXm.nNwulyjJO5epxcRCsSbWPDzC8UGOBFtaRnayqB6DbS', 'ADMIN'),
+(12, 'Admin', 'admin1', 'admin', '45263321X', 'admin@gmail.com', 'admin', '$2y$10$dGeBIZ1xXm.nNwulyjJO5epxcRCsSbWPDzC8UGOBFtaRnayqB6DbS', 'ADMIN'),
 (14, 'profesor', 'profe', 'profe', '21052025h', 'profesor@gmail.com', 'profesor', '$2y$10$tr6GIbtFchckkS0fhjDPRuJyPaQ68/HuPbE3KR/RWZ8nlC4gO0XMq', 'PROFESOR'),
 (15, 'Alumno', 'alumno', 'alumno', '21058863t', 'alumno@gmail.com', 'alumno', '$2y$10$hNjZ8CMzxQ0G3RpGDP1Qae9uzDG4xRlkvZKGzxTNNVgHVosy7nq3q', 'ALUMNO'),
 (16, 'prueba', 'prueba', 'prueba', '99945858l', 'prueba@gmail.com', 'prueba', '$2y$10$6jP6UucTQO8cVPRs4RjuIeZlZ9ocqUMCYbypwl71cONZjuAwvujvO', 'ALUMNO'),
 (25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$Ibga4jL4bNGQkPbLs7gF8er2nLEZmMqWCUwoKmgnlRW1xjToO1RLa', 'ALUMNO'),
-(26, 'pruebavideoo', 'pruebavideoo', 'pruebavideoo', '55026589p', 'pruebavideo2tyufgiku@gmail.com', 'pruebavideoo', '$2y$10$VOixclNBd0OUjiv0fBU.h.0sP484b6lHXRWNrRpmhGyDYn3sPP.Zu', 'PROFESOR');
+(26, 'pruebavideoo', 'pruebavideoo', 'pruebavideoo', '55026589p', 'pruebavideo2tyufgiku@gmail.com', 'pruebavideoo', '$2y$10$VOixclNBd0OUjiv0fBU.h.0sP484b6lHXRWNrRpmhGyDYn3sPP.Zu', 'ALUMNO');
 
 --
 -- Índices para tablas volcadas
@@ -356,6 +406,12 @@ ALTER TABLE `fixedexams`
   ADD KEY `FK_ID_PREGUNTA_EX` (`ID_PREGUNTA`);
 
 --
+-- Indices de la tabla `historiaalumno`
+--
+ALTER TABLE `historiaalumno`
+  ADD PRIMARY KEY (`ID_HISTORIA`);
+
+--
 -- Indices de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
@@ -385,26 +441,27 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT de la tabla `historiaalumno`
+--
+ALTER TABLE `historiaalumno`
+  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
+  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
-
+  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
 --
 -- Restricciones para tablas volcadas
 --
@@ -438,7 +495,6 @@ ALTER TABLE `pregunta`
 --
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `FK_ID_PREGUNTA` FOREIGN KEY (`ID_PREGUNTA`) REFERENCES `pregunta` (`ID_PREGUNTA`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
