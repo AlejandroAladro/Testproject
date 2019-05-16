@@ -1,13 +1,15 @@
--- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+﻿-- phpMyAdmin SQL Dump
+-- version 4.7.8
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 16-05-2019 a las 11:58:24
--- Versión del servidor: 5.7.26-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.33-0ubuntu0.16.04.4
+-- Servidor: localhost:3306
+-- Tiempo de generación: 16-05-2019 a las 17:43:05
+-- Versión del servidor: 5.7.19
+-- Versión de PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -90,7 +92,8 @@ INSERT INTO `examen` (`ID_EXAMEN`, `ID_ASIGNATURA`, `DESCRIPCION`) VALUES
 (4, 'BDD', 'hoy dos preugntas'),
 (5, 'BDD', 'cambiando la base de datos'),
 (6, 'BDD', 'probando base de datos 2'),
-(7, 'BDD', 'The Final Exam');
+(7, 'BDD', 'The Final Exam'),
+(8, 'BDD', 'Full all');
 
 -- --------------------------------------------------------
 
@@ -127,7 +130,12 @@ INSERT INTO `fixedexams` (`ID_EXAMEN`, `ID_PREGUNTA`) VALUES
 (7, 26),
 (7, 27),
 (7, 28),
-(7, 29);
+(7, 29),
+(8, 25),
+(8, 26),
+(8, 28),
+(8, 29),
+(8, 30);
 
 -- --------------------------------------------------------
 
@@ -161,7 +169,9 @@ INSERT INTO `historiaalumno` (`ID_HISTORIA`, `USERNAME`, `ID_EXAMEN`, `FECHA`, `
 (53, 'alumno', 1, '2019-05-16', 0, 2, 1, 'true'),
 (54, 'alumno', 5, '2019-05-16', 0, 1, 0, 'true'),
 (55, 'alumno', 6, '2019-05-16', 1, 1, 0, 'true'),
-(56, 'alumno', 7, '2019-05-16', 1, 2, 1, 'true');
+(56, 'alumno', 7, '2019-05-16', 1, 2, 1, 'true'),
+(57, 'alumno', 7, '2019-05-16', 1, 1, 2, 'false'),
+(58, 'alumno', 8, '2019-05-16', 0, 5, 0, 'true');
 
 -- --------------------------------------------------------
 
@@ -208,7 +218,8 @@ INSERT INTO `pregunta` (`ID_PREGUNTA`, `TEXTO_P`, `COD_ASIGNATURA`) VALUES
 (26, 'hola german', 'BDD'),
 (27, 'con texarea pregunta', 'BDD'),
 (28, '¿Como caga el burro?', 'BDD'),
-(29, 'base cambiada', 'BDD');
+(29, 'base cambiada', 'BDD'),
+(30, 'Prueba Full all', 'BDD');
 
 -- --------------------------------------------------------
 
@@ -343,7 +354,11 @@ INSERT INTO `respuesta` (`ID_RESPUESTA`, `ID_PREGUNTA`, `TEXTO_R`, `CORRECTA`) V
 (113, 29, 'base cambiada 1', 'false'),
 (114, 29, 'base cambiada 2', 'false'),
 (115, 29, 'base cambiada 3', 'true'),
-(116, 29, 'base cambiada 4', 'false');
+(116, 29, 'base cambiada 4', 'false'),
+(117, 30, 'Prueba Full all 1', 'false'),
+(118, 30, 'Prueba Full all 2', 'false'),
+(119, 30, 'Prueba Full all 3', 'false'),
+(120, 30, 'correcta full ', 'true');
 
 -- --------------------------------------------------------
 
@@ -368,12 +383,11 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID_USER`, `NOMBRE`, `APELLIDO1`, `APELLIDO2`, `DNI`, `EMAIL`, `USERNAME`, `PASSWORD`, `TIPO`) VALUES
-(12, 'Admin', 'admin1', 'admin', '45263321X', 'admin@gmail.com', 'admin', '$2y$10$dGeBIZ1xXm.nNwulyjJO5epxcRCsSbWPDzC8UGOBFtaRnayqB6DbS', 'ADMIN'),
+(12, 'Admin', 'admin', 'admin', '45263321H', 'admin@gmail.com', 'admin', '$2y$10$dGeBIZ1xXm.nNwulyjJO5epxcRCsSbWPDzC8UGOBFtaRnayqB6DbS', 'ADMIN'),
 (14, 'profesor', 'profe', 'profe', '21052025h', 'profesor@gmail.com', 'profesor', '$2y$10$tr6GIbtFchckkS0fhjDPRuJyPaQ68/HuPbE3KR/RWZ8nlC4gO0XMq', 'PROFESOR'),
 (15, 'Alumno', 'alumno', 'alumno', '21058863t', 'alumno@gmail.com', 'alumno', '$2y$10$hNjZ8CMzxQ0G3RpGDP1Qae9uzDG4xRlkvZKGzxTNNVgHVosy7nq3q', 'ALUMNO'),
 (16, 'prueba', 'prueba', 'prueba', '99945858l', 'prueba@gmail.com', 'prueba', '$2y$10$6jP6UucTQO8cVPRs4RjuIeZlZ9ocqUMCYbypwl71cONZjuAwvujvO', 'ALUMNO'),
-(25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$Ibga4jL4bNGQkPbLs7gF8er2nLEZmMqWCUwoKmgnlRW1xjToO1RLa', 'ALUMNO'),
-(26, 'pruebavideoo', 'pruebavideoo', 'pruebavideoo', '55026589p', 'pruebavideo2tyufgiku@gmail.com', 'pruebavideoo', '$2y$10$VOixclNBd0OUjiv0fBU.h.0sP484b6lHXRWNrRpmhGyDYn3sPP.Zu', 'ALUMNO');
+(25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$1KX5PcnOmEyVWf5GrzxJ4.0/XPFQSWUkOg3dkpcuSdxLHbCala1im', 'ADMIN');
 
 --
 -- Índices para tablas volcadas
@@ -403,13 +417,16 @@ ALTER TABLE `examen`
 -- Indices de la tabla `fixedexams`
 --
 ALTER TABLE `fixedexams`
-  ADD KEY `FK_ID_PREGUNTA_EX` (`ID_PREGUNTA`);
+  ADD KEY `FK_ID_PREGUNTA_EX` (`ID_PREGUNTA`),
+  ADD KEY `fk_idexamen` (`ID_EXAMEN`);
 
 --
 -- Indices de la tabla `historiaalumno`
 --
 ALTER TABLE `historiaalumno`
-  ADD PRIMARY KEY (`ID_HISTORIA`);
+  ADD PRIMARY KEY (`ID_HISTORIA`),
+  ADD KEY `fk_historia_user` (`USERNAME`),
+  ADD KEY `fk_¨historia_examen` (`ID_EXAMEN`);
 
 --
 -- Indices de la tabla `pregunta`
@@ -441,27 +458,32 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de la tabla `historiaalumno`
 --
 ALTER TABLE `historiaalumno`
-  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -482,7 +504,15 @@ ALTER TABLE `examen`
 -- Filtros para la tabla `fixedexams`
 --
 ALTER TABLE `fixedexams`
-  ADD CONSTRAINT `FK_ID_PREGUNTA_EX` FOREIGN KEY (`ID_PREGUNTA`) REFERENCES `pregunta` (`ID_PREGUNTA`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_ID_PREGUNTA_EX` FOREIGN KEY (`ID_PREGUNTA`) REFERENCES `pregunta` (`ID_PREGUNTA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_idexamen` FOREIGN KEY (`ID_EXAMEN`) REFERENCES `examen` (`ID_EXAMEN`);
+
+--
+-- Filtros para la tabla `historiaalumno`
+--
+ALTER TABLE `historiaalumno`
+  ADD CONSTRAINT `fk_historia_user` FOREIGN KEY (`USERNAME`) REFERENCES `usuario` (`USERNAME`),
+  ADD CONSTRAINT `fk_¨historia_examen` FOREIGN KEY (`ID_EXAMEN`) REFERENCES `examen` (`ID_EXAMEN`);
 
 --
 -- Filtros para la tabla `pregunta`
@@ -495,6 +525,7 @@ ALTER TABLE `pregunta`
 --
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `FK_ID_PREGUNTA` FOREIGN KEY (`ID_PREGUNTA`) REFERENCES `pregunta` (`ID_PREGUNTA`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

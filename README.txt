@@ -11,7 +11,6 @@ $conexion = new mysqli("localhost", "USER", "PASSWORD", "BDNAME");
 
 Donde USER tiene que ser reemplazado por tu usuario de phpmyadmin,PASSWORD por la contraseña de dicho usuario y BDNAME el nombre de la base de datos que creaste con el sql del proyecto.
 
-
 Por ejemplo en mi caso:
 $conexion = new mysqli("localhost", "root", "", "examenestest");
 

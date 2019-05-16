@@ -6,7 +6,6 @@ $(document).ready(function() {
     $('.extra').hide();
     $('#config').hide();
 
-
     //############################## funcion ajax que comprueba que tipo de usuario esta conectado  ############################################################
     $.get("../php/sessioncontrol.php", function(data, estado) {
         var respuesta = data

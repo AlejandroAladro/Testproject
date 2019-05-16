@@ -17,7 +17,6 @@ $(document).ready(function() {
                 }
             });
         })
-
         //#################################################################################################
         //################# botones antes de hacer los modal de los formularios ###########################
 
@@ -993,7 +992,7 @@ $(document).ready(function() {
                                         }
                                         $.post("../php/getanswers2.php", dato, function(data, estado) {
                                             if (estado == "success") {
-                                                
+
                                                 $('#idexamen').val(null)
                                                 $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-light'><label>" + contador + "- " + valor.TEXTO_P + "</label>")
                                                 $.each(data, function(indice, valor) {
@@ -1102,7 +1101,7 @@ $(document).ready(function() {
                                     }
                                     $.post("../php/getanswers2.php", dato, function(data, estado) {
                                         if (estado == "success") {
-                                            
+
                                             $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-light'><label>" + numpregun + "- " + valor.TEXTO_P + "</label>")
                                             $.each(data, function(indice, valor) {
 
@@ -1132,14 +1131,14 @@ $(document).ready(function() {
 
         })
 
-    $("body").on("click",":radio",function (e) {
-        var radio=$(this); 
-        if (radio.is(".seleccionado")) { 
-            radio.prop("checked",false).removeClass("seleccionado");
-            return;
-        }
-        $("input:radio[name='"+radio.prop("name")+"'].seleccionado").removeClass("seleccionado");
-        radio.addClass("seleccionado");
-    });
+        $("body").on("click", ":radio", function(e) {
+            var radio = $(this);
+            if (radio.is(".seleccionado")) {
+                radio.prop("checked", false).removeClass("seleccionado");
+                return;
+            }
+            $("input:radio[name='" + radio.prop("name") + "'].seleccionado").removeClass("seleccionado");
+            radio.addClass("seleccionado");
+        });
 
     }) //end of all

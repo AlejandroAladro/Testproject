@@ -1,6 +1,5 @@
-<?php 
+<?php
 session_start();
-
 if(isset($_SESSION['alumno'])){
 	echo $_SESSION['alumno'];
 }elseif (isset($_SESSION['profesor'])){
@@ -10,7 +9,4 @@ if(isset($_SESSION['alumno'])){
 }else {
 	echo "null";
 }
-
-
-
- ?>
+?>

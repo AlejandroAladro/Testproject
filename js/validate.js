@@ -14,7 +14,6 @@ function valnom() {
         $('#alertnombre').slideDown();
         document.getElementById('nomb').focus();
 
-
     } else {
         $('button').prop("disabled", false);
         $('#nomb').addClass('is-valid');

@@ -14,7 +14,6 @@ $(document).ready(function() {
         })
         //##########################################################################################
 
-
     //cunado entramos en la vista login la ventana activa sera la del login y no la del registro        
     $('#entrar').addClass("active")
         //el formulario de registro se oculta
