@@ -1,6 +1,11 @@
+
+
 $(document).ready(function() {
 
-
+        $('body').on('click',".page-item",function(){
+            $('.page-item').removeClass('active')
+                    $(this).addClass('active')
+        })
 
         $('body').on("submit", "#formulariopreguntas", function() {
             event.preventDefault();
@@ -66,8 +71,15 @@ $(document).ready(function() {
                                         $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post'><select name='tipo'><option value='PROFESOR'>PROFESOR</option><option value='ADMIN'>ADMIN</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td></tr>");
                                     }
                                 })
+
+                                 $("#tableusers").paginationTdA({
+                                    elemPerPage: 2
+                                })
                             }
                         })
+
+                                  
+                                
 
                         $('body').on("submit", 'form', function() {
                             event.preventDefault();
@@ -426,6 +438,10 @@ $(document).ready(function() {
                                         $.each(data, function(indice, valor) {
                                             $('#tablepreguntas').children('tbody').append("<tr><td>" + valor.ID_PREGUNTA + "</td><td>" + valor.TEXTO_P + "</td><td>" + valor.COD_ASIGNATURA + "</td><td><form action='../php/deletequestion.php' method='post' id='eliminarquestion'><input type='hidden' name='codigo' value='" + valor.ID_PREGUNTA + "'><button type='submit' class='btn btn-danger ml-5'><i class='fas fa-trash-alt'></i></button></form></td><td><form action='../php/getanswers.php' method='post' id='getrespuestas'><input type='hidden' name='codigo' value='" + valor.ID_PREGUNTA + "'><button type='submit' class='btn btn-primary ' id='editquestionbutton'>Editar</button></form></td></tr>");
                                         })
+
+                                        $("#tablepreguntas").paginationTdA({
+                                            elemPerPage: 10
+                                        })
                                     }
                                 })
                             })
@@ -584,6 +600,8 @@ $(document).ready(function() {
                                         $.each(data, function(indice, valor) {
                                             $('#tablepreguntasexam').children('tbody').append("<tr><td>" + valor.ID_PREGUNTA + "</td><td>" + valor.TEXTO_P + "</td><td><div class='form-check'><input class='form-check-input' type='checkbox' value='" + valor.ID_PREGUNTA + "' name='idpreguntas[]'></div></td></tr>");
                                         })
+
+
                                     }
                                 })
                             })
@@ -712,6 +730,10 @@ $(document).ready(function() {
                                         $('#tablehistory').children('tbody').append("<tr class='table-success'><td>" + valor.DESCRIPCION + "</td><td>" + valor.FECHA + "</td><td class='d-none d-md-table-cell'>" + valor.ACIERTOS + "</td><td class='d-none d-md-table-cell'>" + valor.ERRORES + "</td><td class='d-none d-md-table-cell'>" + valor.BLANCOS + "</td><td>" + valor.APROBADO + "</td></tr>")
                                     }
                                 })
+
+                                 $("#tablehistory").paginationTdA({
+                                            elemPerPage: 10
+                                        })
 
                             })
 
