@@ -31,7 +31,7 @@ $(document).ready(function() {
             if ($(this).html() == "Regístrate") {
                 $('a').removeClass("active")
                 $(this).addClass("active")
-                $('#registro').show("slow");
+                $('#registro').show();
                 $('#login').hide();
                 $('#exito').hide();
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
                 $('a').removeClass("active")
                 $(this).addClass("active")
                 $('#registro').hide();
-                $('#login').show("slow");
+                $('#login').show();
                 $('#exito').hide();
 
 
