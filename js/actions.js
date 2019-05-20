@@ -73,7 +73,7 @@ $(document).ready(function() {
                                 })
 
                                  $("#tableusers").paginationTdA({
-                                    elemPerPage: 2
+                                    elemPerPage: 5
                                 })
                             }
                         })
@@ -1005,9 +1005,10 @@ $(document).ready(function() {
                             $('#formularioexamen').show();
                             var veces = 0;
                             var contador = 1;
+                            contador3 = 20;
                             $.post("../php/getdataquestion.php", datos, function(data, estado) {
                                 if (estado == "success") {
-                                    contador3 = 20;
+                                    
                                     $.each(data, function(indice, valor) {
                                         var dato = {
                                             "codigo": valor.ID_PREGUNTA
@@ -1112,10 +1113,11 @@ $(document).ready(function() {
 
                         numeroveces = 0;
                         numpregun = 1;
+                        contidsfors = 20;
                         $.post("../php/getdataquestion.php", datos, function(data, estado) {
                             if (estado == 'success') {
 
-                                contidsfors = 20;
+                                
                                 $.each(data, function(indice, valor) {
 
                                     var dato = {
