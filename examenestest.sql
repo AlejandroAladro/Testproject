@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 16-05-2019 a las 17:43:05
+-- Tiempo de generación: 21-05-2019 a las 19:53:13
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 7.2.2
 
@@ -93,7 +93,10 @@ INSERT INTO `examen` (`ID_EXAMEN`, `ID_ASIGNATURA`, `DESCRIPCION`) VALUES
 (5, 'BDD', 'cambiando la base de datos'),
 (6, 'BDD', 'probando base de datos 2'),
 (7, 'BDD', 'The Final Exam'),
-(8, 'BDD', 'Full all');
+(8, 'BDD', 'Full all'),
+(9, 'BDD', 'HELLOOO'),
+(10, 'BDD', 'examen fijado 4 preguntas'),
+(11, 'BDD', 'examen fijado 11 preguntas');
 
 -- --------------------------------------------------------
 
@@ -135,7 +138,25 @@ INSERT INTO `fixedexams` (`ID_EXAMEN`, `ID_PREGUNTA`) VALUES
 (8, 26),
 (8, 28),
 (8, 29),
-(8, 30);
+(8, 30),
+(9, 30),
+(9, 31),
+(9, 32),
+(10, 27),
+(10, 28),
+(10, 29),
+(10, 30),
+(11, 22),
+(11, 23),
+(11, 24),
+(11, 25),
+(11, 26),
+(11, 27),
+(11, 28),
+(11, 29),
+(11, 30),
+(11, 31),
+(11, 32);
 
 -- --------------------------------------------------------
 
@@ -171,7 +192,26 @@ INSERT INTO `historiaalumno` (`ID_HISTORIA`, `USERNAME`, `ID_EXAMEN`, `FECHA`, `
 (55, 'alumno', 6, '2019-05-16', 1, 1, 0, 'true'),
 (56, 'alumno', 7, '2019-05-16', 1, 2, 1, 'true'),
 (57, 'alumno', 7, '2019-05-16', 1, 1, 2, 'false'),
-(58, 'alumno', 8, '2019-05-16', 0, 5, 0, 'true');
+(58, 'alumno', 8, '2019-05-16', 0, 5, 0, 'true'),
+(59, 'alumno', 2, '2019-05-16', 3, 2, 1, 'false'),
+(60, 'alumno', 3, '2019-05-16', 0, 0, 2, 'false'),
+(61, 'pepito', 8, '2019-05-20', 1, 4, 0, 'true'),
+(62, 'pepito', 2, '2019-05-20', 0, 1, 5, 'false'),
+(63, 'pepito', 5, '2019-05-20', 0, 1, 0, 'true'),
+(64, 'pepito', 3, '2019-05-20', 2, 0, 0, 'false'),
+(65, 'pepito', 1, '2019-05-20', 2, 1, 0, 'false'),
+(66, 'pepito', 1, '2019-05-20', 0, 0, 3, 'false'),
+(67, 'pepito', 4, '2019-05-20', 2, 0, 0, 'false'),
+(68, 'pepito', 8, '2019-05-20', 0, 1, 4, 'false'),
+(69, 'pepito', 3, '2019-05-20', 2, 0, 0, 'false'),
+(70, 'pepito', 2, '2019-05-20', 2, 3, 1, 'true'),
+(71, 'pepito', 3, '2019-05-20', 2, 0, 0, 'false'),
+(72, 'pepito', 8, '2019-05-20', 0, 4, 1, 'true'),
+(73, 'pepito', 9, '2019-05-20', 1, 2, 0, 'true'),
+(74, 'alumno', 1, '2019-05-20', 2, 1, 0, 'false'),
+(75, 'alumno', 3, '2019-05-21', 1, 1, 0, 'true'),
+(76, 'alumno', 1, '2019-05-21', 2, 1, 0, 'false'),
+(77, 'alumno', 5, '2019-05-21', 0, 1, 0, 'true');
 
 -- --------------------------------------------------------
 
@@ -219,7 +259,9 @@ INSERT INTO `pregunta` (`ID_PREGUNTA`, `TEXTO_P`, `COD_ASIGNATURA`) VALUES
 (27, 'con texarea pregunta', 'BDD'),
 (28, '¿Como caga el burro?', 'BDD'),
 (29, 'base cambiada', 'BDD'),
-(30, 'Prueba Full all', 'BDD');
+(30, 'Prueba Full all', 'BDD'),
+(31, 'rthsrthsrthrt', 'BDD'),
+(32, 'rthsrthsrthrt', 'BDD');
 
 -- --------------------------------------------------------
 
@@ -358,7 +400,15 @@ INSERT INTO `respuesta` (`ID_RESPUESTA`, `ID_PREGUNTA`, `TEXTO_R`, `CORRECTA`) V
 (117, 30, 'Prueba Full all 1', 'false'),
 (118, 30, 'Prueba Full all 2', 'false'),
 (119, 30, 'Prueba Full all 3', 'false'),
-(120, 30, 'correcta full ', 'true');
+(120, 30, 'correcta full ', 'true'),
+(121, 31, 'hrthrth', 'true'),
+(122, 31, 'rthrthrth', 'false'),
+(123, 31, 'rthrth', 'false'),
+(124, 31, 'rthrthrthhrth', 'false'),
+(125, 32, 'hrthrth', 'false'),
+(126, 32, 'rthrthrth', 'false'),
+(127, 32, 'rthrth', 'true'),
+(128, 32, 'rthrthrthhrth', 'false');
 
 -- --------------------------------------------------------
 
@@ -387,7 +437,8 @@ INSERT INTO `usuario` (`ID_USER`, `NOMBRE`, `APELLIDO1`, `APELLIDO2`, `DNI`, `EM
 (14, 'profesor', 'profe', 'profe', '21052025h', 'profesor@gmail.com', 'profesor', '$2y$10$tr6GIbtFchckkS0fhjDPRuJyPaQ68/HuPbE3KR/RWZ8nlC4gO0XMq', 'PROFESOR'),
 (15, 'Alumno', 'alumno', 'alumno', '21058863t', 'alumno@gmail.com', 'alumno', '$2y$10$hNjZ8CMzxQ0G3RpGDP1Qae9uzDG4xRlkvZKGzxTNNVgHVosy7nq3q', 'ALUMNO'),
 (16, 'prueba', 'prueba', 'prueba', '99945858l', 'prueba@gmail.com', 'prueba', '$2y$10$6jP6UucTQO8cVPRs4RjuIeZlZ9ocqUMCYbypwl71cONZjuAwvujvO', 'ALUMNO'),
-(25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$1KX5PcnOmEyVWf5GrzxJ4.0/XPFQSWUkOg3dkpcuSdxLHbCala1im', 'ADMIN');
+(25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$1KX5PcnOmEyVWf5GrzxJ4.0/XPFQSWUkOg3dkpcuSdxLHbCala1im', 'ADMIN'),
+(26, 'pepito', 'pepito', 'pepito', '55026589p', 'pepito@gtmail.com', 'pepito', '$2y$10$wEUNtwZjQD./N222d8ZZ0uhOpeWCDUaNn5OM48sgUo3n8qhLXGuPa', 'ALUMNO');
 
 --
 -- Índices para tablas volcadas
@@ -458,25 +509,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `historiaalumno`
 --
 ALTER TABLE `historiaalumno`
-  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

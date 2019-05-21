@@ -724,10 +724,10 @@ $(document).ready(function() {
                                     if (valor.APROBADO == "false") {
 
 
-                                        $('#tablehistory').children('tbody').append("<tr class='table-danger'><td>" + valor.DESCRIPCION + "</td><td>" + valor.FECHA + "</td><td class='d-none d-md-table-cell'>" + valor.ACIERTOS + "</td><td class='d-none d-md-table-cell'>" + valor.ERRORES + "</td><td class='d-none d-md-table-cell'>" + valor.BLANCOS + "</td><td>" + valor.APROBADO + "</td></tr>")
+                                        $('#tablehistory').children('tbody').append("<tr class='table-danger'><td>" + valor.DESCRIPCION + "</td><td>" + valor.FECHA + "</td><td class='d-none d-md-table-cell'>" + valor.ACIERTOS + "</td><td class='d-none d-md-table-cell'>" + valor.ERRORES + "</td><td class='d-none d-md-table-cell'>" + valor.BLANCOS + "</td><td>Suspenso </td></tr>")
 
                                     } else {
-                                        $('#tablehistory').children('tbody').append("<tr class='table-success'><td>" + valor.DESCRIPCION + "</td><td>" + valor.FECHA + "</td><td class='d-none d-md-table-cell'>" + valor.ACIERTOS + "</td><td class='d-none d-md-table-cell'>" + valor.ERRORES + "</td><td class='d-none d-md-table-cell'>" + valor.BLANCOS + "</td><td>" + valor.APROBADO + "</td></tr>")
+                                        $('#tablehistory').children('tbody').append("<tr class='table-success'><td>" + valor.DESCRIPCION + "</td><td>" + valor.FECHA + "</td><td class='d-none d-md-table-cell'>" + valor.ACIERTOS + "</td><td class='d-none d-md-table-cell'>" + valor.ERRORES + "</td><td class='d-none d-md-table-cell'>" + valor.BLANCOS + "</td><td>Aprobado </td></tr>")
                                     }
                                 })
 
@@ -1017,7 +1017,7 @@ $(document).ready(function() {
                                             if (estado == "success") {
 
                                                 $('#idexamen').val(null)
-                                                $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-light'><label>" + contador + "- " + valor.TEXTO_P + "</label>")
+                                                $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-secondary'><label class='text-white'>" + contador + "- " + valor.TEXTO_P + "</label>")
                                                 $.each(data, function(indice, valor) {
                                                     $('#contenidoexamen').append("<div class='custom-control custom-radio my-3'><input class='custom-control-input' id='radio" + contador3 + "' type='radio' name='radio" + contador + "' value='" + valor.ID_RESPUESTA + "'><label class='custom-control-label' for='radio" + contador3 + "'>" + valor.TEXTO_R + "</label></div>")
                                                     veces++;
@@ -1086,6 +1086,10 @@ $(document).ready(function() {
                     $.each(respuesta, function(indice, valor) {
                         $('#tablefixedexams').children('tbody').append("<tr><td>" + valor.ID_ASIGNATURA + "</td><td>" + valor.DESCRIPCION + "</td><td><form action='../php/getquestionforexam.php' method='post' id='makefixedexam'><input type='hidden' name='codexam' value='" + valor.ID_EXAMEN + "' /><button type='submit' class='btn btn-warning  btn-block ml-auto'>Hacer</button></form></td></tr>");
                     })
+
+                    $("#tablefixedexams").paginationTdA({
+                                            elemPerPage: 10
+                                        })
                 }
 
             })
@@ -1126,7 +1130,7 @@ $(document).ready(function() {
                                     $.post("../php/getanswers2.php", dato, function(data, estado) {
                                         if (estado == "success") {
 
-                                            $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-light'><label>" + numpregun + "- " + valor.TEXTO_P + "</label>")
+                                            $('#contenidoexamen').append("<div class='form-group py-3 pl-2 bg-secondary'><label class='text-white'>" + numpregun + "- " + valor.TEXTO_P + "</label>")
                                             $.each(data, function(indice, valor) {
 
                                                 $('#contenidoexamen').append("<div class='custom-control custom-radio my-3'><input class='custom-control-input' id='radio" + contidsfors + "' type='radio' name='radio" + numpregun + "' value='" + valor.ID_RESPUESTA + "'><label class='custom-control-label' for='radio" + contidsfors + "'>" + valor.TEXTO_R + "</label></div>")
