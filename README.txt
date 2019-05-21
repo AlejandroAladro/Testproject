@@ -1,4 +1,4 @@
-Cuando bajas el proyecto no va a funcionar porque tienes que modificar con los datos de acceso a tu phpmyadmin.
+Cuando bajas el proyecto no va a funcionar porque tienes que modificar con los datos de acceso a tu respectiva BD en mi caso phpmyadmin.
 
 Paso 1:
 Abre el fichero conexion.php
