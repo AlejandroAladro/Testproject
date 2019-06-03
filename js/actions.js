@@ -6,6 +6,12 @@ $(document).ready(function() {
             $('.page-item').removeClass('active')
                     $(this).addClass('active')
         })
+         $("#file-0").fileinput({
+        theme: 'fas',
+        uploadUrl: '#'
+    }).on('filepreupload', function(event, data, previewId, index) {
+        alert('The description entered is:\n\n' + ($('#description').val() || ' NULL'));
+    });
 
         $('body').on("submit", "#formulariopreguntas", function() {
             event.preventDefault();
@@ -43,6 +49,7 @@ $(document).ready(function() {
                 $('#cambiarpass').hide();
                 $('#datosperfil').hide();
                 $('#alertcurso1').hide();
+                $('#formcredential').hide();
                 $('.home').hide();
                 $('#listadmin').show();
                 $('#how').hide();
@@ -188,6 +195,9 @@ $(document).ready(function() {
                 $('#tablepreguntasexam').hide();
                 $('#elrtfixedexam1').hide();
                 $('#elrtfixedexam2').hide();
+                $('#uploadfilesform').hide();
+                $('#formcredential').hide();
+                $('#alerforupload').hide();
 
                 $('a').click(function() {
                         $('a').removeClass('active');
@@ -211,6 +221,8 @@ $(document).ready(function() {
                             $('#tablepreguntasexam').hide();
                             $('#elrtfixedexam1').hide();
                             $('#elrtfixedexam2').hide();
+                            $('#uploadfilesform').hide();
+                            $('#alerforupload').hide();
 
 
                             $.get("../php/cursos.php", function(data, estado) {
@@ -323,6 +335,8 @@ $(document).ready(function() {
                             $('#tablepreguntasexam').hide();
                             $('#elrtfixedexam1').hide();
                             $('#elrtfixedexam2').hide();
+                            $('#uploadfilesform').hide();
+                            $('#alerforupload').hide();
 
 
                             $.get("../php/cursos.php", function(data, estado) {
@@ -384,6 +398,8 @@ $(document).ready(function() {
                             $('#tablepreguntasexam').hide();
                             $('#elrtfixedexam1').hide();
                             $('#elrtfixedexam2').hide();
+                            $('#uploadfilesform').hide();
+                            $('#alerforupload').hide();
 
                             $('#selecteditpreguncurs').show();
 
@@ -547,6 +563,8 @@ $(document).ready(function() {
                             $('#tablepreguntasexam').hide();
                             $('#elrtfixedexam1').hide();
                             $('#elrtfixedexam2').hide();
+                            $('#uploadfilesform').hide();
+                            $('#alerforupload').hide();
 
                             $.get("../php/cursos.php", function(data, estado) {
                                 if (estado == "success") {
@@ -634,8 +652,77 @@ $(document).ready(function() {
 
 
 
+                            //end of fixed exam
+                        }else if($(this).html() == "Subir Fichero"){
+                            $('#contselectprofe').hide();
+                            $('#elrtfixedexam1').hide();
+                                $('#elrtfixedexam2').hide();
+                                $('#tablepreguntasexam').hide();
+                                $('#selectcursopregunt').hide();
+                                $('#selecteditpreguncurs').hide();
+                                $('#selectcursofixexamen').hide();
+                                $('#seleceditpregunasig').hide();
+                                $('#selectasig').hide();
+                                $('.table').hide();
+                                $('#formulariopreguntas').hide();
+                                $('#selectfixexamasig').hide();
 
-                        } //end of fixed exam
+                            $.get("../php/cursos.php",function(data,estado){
+                                if(estado=="success"){
+                                    $('#selectcursoforupload').empty();
+                                        $('#selectcursoforupload').append("<option selected='selected'>Seleccione Curso</option>");
+
+                                    
+                                   
+                                    $.each(data,function(indice,valor){
+                                        $('#selectcursoforupload').append("<option value='"+valor.COD_CURSO+"'>"+valor.COD_CURSO+"</option>")
+                                    })
+                                }
+                            })
+
+                            $('#selectcursoforupload').change(function(){
+                                var codigo = $(this).val();
+                                var datos = {"codigo": codigo};
+                                console.log(codigo)
+                                console.log(datos)
+
+                                $.post("../php/asignaturas.php",datos,function(data,estado){
+                                    if(estado=="success"){
+                                        console.log('ok')
+                                          $('#selectasigforupload').empty();
+                                        $('#selectasigforupload').append("<option selected='selected'>Seleccione Asignatura</option>");
+                                   
+                                    $.each(data,function(indice,valor){
+                                        $('#selectasigforupload').append("<option value='"+valor.COD_ASIGNATURA+"'>"+valor.COD_ASIGNATURA+"</option>")
+                                    })
+                                    }
+                                })
+                            })
+
+                            $('#uploadfilesform').show();
+
+
+                            $('#formupload').submit(function(){
+                                // event.preventDefault();
+                                $.ajax({
+                                    type: "POST",
+                                    url: "../php/editquestion.php",
+                                    data: $(this).serialize(),
+                                    success: function(respuesta) {
+
+                                        $(location).attr("href", "index.html");
+                                        // $('#uploadfilesform').hide();
+                                        // $('#alerforupload').show();
+
+                                        
+
+                                    }
+                                });
+
+
+                            })
+
+                        }//end uploadfiles 
 
                     }) //end of if opciones
 
@@ -652,6 +739,7 @@ $(document).ready(function() {
                 $('#credencial').hide();
                 $('#how').hide();
                 $('#tablehistory').hide();
+                $('#formcredential').hide();
 
 
 
@@ -766,12 +854,15 @@ $(document).ready(function() {
                 $('#credencial').hide();
                 $('#how').show();
                 $('#tablehistory').hide();
+                $('#uploadfilesform').hide();
+                $('#alerforupload').hide();
 
 
             } else if ($(this).html() == "Configuración") {
                 $('#contselectprofe').hide();
                 $('#listadmin').hide();
                 $('#selectfixexamasig').hide();
+                $('#alerforupload').hide();
                 $('#listprofesor').hide();
                 $('.home').hide();
                 $('#createcurso').hide();
@@ -798,6 +889,7 @@ $(document).ready(function() {
                 $('#elrtfixedexam1').hide();
                 $('#elrtfixedexam2').hide();
                 $('#tablehistory').hide();
+                $('#uploadfilesform').hide();
 
 
                 $('a').click(function() {
