@@ -195,6 +195,7 @@
 						<th class='d-none d-md-table-cell' scope='col'>DNI</th>
 						<th class='d-none d-md-table-cell' scope='col'>Email</th>
 						<th scope='col'>Tipo</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -362,6 +363,7 @@
 				<div class="alert alert-danger" id="elrtfixedexam2" role="alert">
 					Has seleccionado mas de 20 preguntas o ninguna, por favor comprueba que seleccionas un maximo de 20 y un mínimo de 1.
 				</div>
+				
 				<form action="../php/fixedexam.php" method="post" id="formfixedexam">
 					<input type="hidden" name="codasig" id="codasigfixex">
 					<table class='table table-striped' id="tablepreguntasexam">
@@ -395,6 +397,8 @@
 									<div class='form-group '><label >Descripción</label>
 									<input type='text' class='form-control' name='descripcion'  placeholder='Introduce Descripcion del examen' required>
 									<small class="form-text text-muted">Esta descripcion sera mostrada a la hora de que el alumno escoja un examen, por ejemplo examen tema 1...</small>
+
+									
 								</div>
 							</div>
 							<div class="modal-footer">

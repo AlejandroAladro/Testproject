@@ -1,6 +1,8 @@
 <?php
 include 'conexion.php';
-$sql="SELECT * FROM usuario ";
+session_start();
+
+$sql="SELECT * FROM usuario WHERE USERNAME != '{$_SESSION['admin']}' ";
 	$res=mysqli_query($conexion,$sql);
 	$datos=array();
 		while ($fila = mysqli_fetch_assoc($res)) {

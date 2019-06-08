@@ -65,17 +65,17 @@ $(document).ready(function() {
                         $('#tablecursos').hide();
 
                         $.get("../php/usuarios.php", function(data, estado) {
-                            console.log(data);
+                            
                             if (estado == "success") {
                                 $('#tableusers').children('tbody').empty();
 
                                 $.each(data, function(indice, valor) {
                                     if (valor.TIPO == 'PROFESOR') {
-                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post'><select name='tipo'><option value='ALUMNO'>ALUMNO</option><option value='ADMIN'>ADMIN</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td></tr>");
+                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post' id='edituserbyadmin'><select name='tipo'><option value='ALUMNO'>ALUMNO</option><option value='ADMIN'>ADMIN</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td><td><form action='../php/deleteuserbyadmin.php' method='post' id='deleteuserbyadmin'><input type='hidden' name='username' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-danger ml-2'><i class='fas fa-trash-alt'></i></button></form></td></tr>");
                                     } else if (valor.TIPO == 'ADMIN') {
-                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post'><select name='tipo'><option value='ALUMNO'>ALUMNO</option><option value='PROFESOR'>PROFESOR</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td></tr>");
+                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post' id='edituserbyadmin'><select name='tipo'><option value='ALUMNO'>ALUMNO</option><option value='PROFESOR'>PROFESOR</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td><td><form action='../php/deleteuserbyadmin.php' method='post' id='deleteuserbyadmin'><input type='hidden' name='username' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-danger ml-2'><i class='fas fa-trash-alt'></i></button></form></td></tr>");
                                     } else if (valor.TIPO == 'ALUMNO') {
-                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post'><select name='tipo'><option value='PROFESOR'>PROFESOR</option><option value='ADMIN'>ADMIN</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td></tr>");
+                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post' id='edituserbyadmin'><select name='tipo'><option value='PROFESOR'>PROFESOR</option><option value='ADMIN'>ADMIN</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td><td><form action='../php/deleteuserbyadmin.php' method='post' id='deleteuserbyadmin'><input type='hidden' name='username' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-danger ml-2'><i class='fas fa-trash-alt'></i></button></form></td></tr>");
                                     }
                                 })
 
@@ -88,7 +88,7 @@ $(document).ready(function() {
                                   
                                 
 
-                        $('body').on("submit", 'form', function() {
+                        $('body').on("submit", '#edituserbyadmin', function() {
                             event.preventDefault();
 
                             $.ajax({
@@ -96,6 +96,38 @@ $(document).ready(function() {
                                 url: "../php/edituser.php",
                                 data: $(this).serialize(),
                                 success: function(respuesta) {}
+                            })
+                        })
+
+                         $('body').on("submit", '#deleteuserbyadmin', function() {
+                            event.preventDefault();
+
+                            $.ajax({
+                                type: "POST",
+                                url: "../php/deleteuserbyadmin.php",
+                                data: $(this).serialize(),
+                                success: function(respuesta) {
+                                    $.get("../php/usuarios.php", function(data, estado) {
+                            
+                            if (estado == "success") {
+                                $('#tableusers').children('tbody').empty();
+
+                                $.each(data, function(indice, valor) {
+                                    if (valor.TIPO == 'PROFESOR') {
+                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post' id='edituserbyadmin'><select name='tipo'><option value='ALUMNO'>ALUMNO</option><option value='ADMIN'>ADMIN</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td><td><form action='../php/deleteuserbyadmin.php' method='post' id='deleteuserbyadmin'><input type='hidden' name='username' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-danger ml-2'><i class='fas fa-trash-alt'></i></button></form></td></tr>");
+                                    } else if (valor.TIPO == 'ADMIN') {
+                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post' id='edituserbyadmin'><select name='tipo'><option value='ALUMNO'>ALUMNO</option><option value='PROFESOR'>PROFESOR</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td><td><form action='../php/deleteuserbyadmin.php' method='post' id='deleteuserbyadmin'><input type='hidden' name='username' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-danger ml-2'><i class='fas fa-trash-alt'></i></button></form></td></tr>");
+                                    } else if (valor.TIPO == 'ALUMNO') {
+                                        $('tbody').append("<tr><td>" + valor.USERNAME + "</td><td class='d-none d-md-table-cell'>" + valor.DNI + "</td><td class='d-none d-md-table-cell'>" + valor.EMAIL + "</td><td><form action='../php/edituser.php' method='post' id='edituserbyadmin'><select name='tipo'><option value='PROFESOR'>PROFESOR</option><option value='ADMIN'>ADMIN</option><option selected>" + valor.TIPO + "</option></select><input type='hidden' name='usuario' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-primary ml-1 ml-md-5' data-toggle='modal' data-target='#modaltransition'>Editar</button></form></td><td><form action='../php/deleteuserbyadmin.php' method='post' id='deleteuserbyadmin'><input type='hidden' name='username' value='" + valor.USERNAME + "'><button type='submit' class='btn btn-danger ml-2'><i class='fas fa-trash-alt'></i></button></form></td></tr>");
+                                    }
+                                })
+
+                                 $("#tableusers").paginationTdA({
+                                    elemPerPage: 5
+                                })
+                            }
+                        })
+                                }
                             })
                         })
 
@@ -739,7 +771,7 @@ $(document).ready(function() {
                 $('#credencial').hide();
                 $('#how').hide();
                 $('#tablehistory').hide();
-                $('#formcredential').hide();
+                $('#credencial').hide();
 
 
 
