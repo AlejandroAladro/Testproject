@@ -49,7 +49,7 @@ $(document).ready(function() {
                 $('#cambiarpass').hide();
                 $('#datosperfil').hide();
                 $('#alertcurso1').hide();
-                $('#formcredential').hide();
+                $('#credencial').hide();
                 $('.home').hide();
                 $('#listadmin').show();
                 $('#how').hide();
@@ -228,7 +228,7 @@ $(document).ready(function() {
                 $('#elrtfixedexam1').hide();
                 $('#elrtfixedexam2').hide();
                 $('#uploadfilesform').hide();
-                $('#formcredential').hide();
+                $('#credencial').hide();
                 $('#alerforupload').hide();
 
                 $('a').click(function() {
