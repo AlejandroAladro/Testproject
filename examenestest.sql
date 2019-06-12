@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 21-05-2019 a las 19:53:13
+-- Tiempo de generación: 12-06-2019 a las 17:54:44
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 7.2.2
 
@@ -96,7 +96,11 @@ INSERT INTO `examen` (`ID_EXAMEN`, `ID_ASIGNATURA`, `DESCRIPCION`) VALUES
 (8, 'BDD', 'Full all'),
 (9, 'BDD', 'HELLOOO'),
 (10, 'BDD', 'examen fijado 4 preguntas'),
-(11, 'BDD', 'examen fijado 11 preguntas');
+(11, 'BDD', 'examen fijado 11 preguntas'),
+(12, 'BDD', '12/06/2019'),
+(13, 'DIW', '5 12/06/2019'),
+(14, 'BDD', 'manolito'),
+(15, 'BDD', '5 preguntas nuevas junio 12');
 
 -- --------------------------------------------------------
 
@@ -156,7 +160,21 @@ INSERT INTO `fixedexams` (`ID_EXAMEN`, `ID_PREGUNTA`) VALUES
 (11, 29),
 (11, 30),
 (11, 31),
-(11, 32);
+(11, 32),
+(12, 22),
+(12, 23),
+(13, 1),
+(13, 2),
+(13, 3),
+(13, 4),
+(13, 5),
+(14, 32),
+(14, 33),
+(15, 31),
+(15, 32),
+(15, 33),
+(15, 34),
+(15, 35);
 
 -- --------------------------------------------------------
 
@@ -211,7 +229,20 @@ INSERT INTO `historiaalumno` (`ID_HISTORIA`, `USERNAME`, `ID_EXAMEN`, `FECHA`, `
 (74, 'alumno', 1, '2019-05-20', 2, 1, 0, 'false'),
 (75, 'alumno', 3, '2019-05-21', 1, 1, 0, 'true'),
 (76, 'alumno', 1, '2019-05-21', 2, 1, 0, 'false'),
-(77, 'alumno', 5, '2019-05-21', 0, 1, 0, 'true');
+(77, 'alumno', 5, '2019-05-21', 0, 1, 0, 'true'),
+(78, 'alumno', 3, '2019-05-26', 2, 0, 0, 'false'),
+(79, 'alumno', 11, '2019-05-26', 4, 7, 0, 'true'),
+(80, 'alumno', 1, '2019-06-03', 1, 1, 1, 'false'),
+(81, 'alumno', 1, '2019-06-03', 2, 0, 1, 'false'),
+(82, 'alumno', 1, '2019-06-03', 1, 1, 1, 'false'),
+(83, 'alumno', 4, '2019-06-03', 2, 0, 0, 'false'),
+(84, 'alumno', 11, '2019-06-08', 10, 1, 0, 'false'),
+(85, 'alumno', 12, '2019-06-12', 2, 0, 0, 'false'),
+(86, 'alumno', 2, '2019-06-12', 3, 3, 0, 'true'),
+(87, 'alumno', 13, '2019-06-12', 5, 0, 0, 'false'),
+(88, 'alumno', 14, '2019-06-12', 1, 1, 0, 'true'),
+(89, 'alumno', 15, '2019-06-12', 2, 3, 0, 'true'),
+(90, 'alumno', 15, '2019-06-12', 2, 3, 0, 'true');
 
 -- --------------------------------------------------------
 
@@ -261,7 +292,10 @@ INSERT INTO `pregunta` (`ID_PREGUNTA`, `TEXTO_P`, `COD_ASIGNATURA`) VALUES
 (29, 'base cambiada', 'BDD'),
 (30, 'Prueba Full all', 'BDD'),
 (31, 'rthsrthsrthrt', 'BDD'),
-(32, 'rthsrthsrthrt', 'BDD');
+(32, 'rthsrthsrthrt', 'BDD'),
+(33, 'hola soy manolito', 'BDD'),
+(34, 'que fue lo que paso?', 'BDD'),
+(35, 'cuantos años tienes?', 'BDD');
 
 -- --------------------------------------------------------
 
@@ -408,7 +442,19 @@ INSERT INTO `respuesta` (`ID_RESPUESTA`, `ID_PREGUNTA`, `TEXTO_R`, `CORRECTA`) V
 (125, 32, 'hrthrth', 'false'),
 (126, 32, 'rthrthrth', 'false'),
 (127, 32, 'rthrth', 'true'),
-(128, 32, 'rthrthrthhrth', 'false');
+(128, 32, 'rthrthrthhrth', 'false'),
+(129, 33, 'gg', 'true'),
+(130, 33, 'nn', 'false'),
+(131, 33, 'll', 'false'),
+(132, 33, 'hh', 'false'),
+(133, 34, 'nn', 'false'),
+(134, 34, 'mm', 'false'),
+(135, 34, 'gg', 'true'),
+(136, 34, 'll', 'false'),
+(137, 35, 'nn', 'false'),
+(138, 35, 'gg', 'false'),
+(139, 35, 'mm', 'true'),
+(140, 35, 'll', 'false');
 
 -- --------------------------------------------------------
 
@@ -436,9 +482,10 @@ INSERT INTO `usuario` (`ID_USER`, `NOMBRE`, `APELLIDO1`, `APELLIDO2`, `DNI`, `EM
 (12, 'Admin', 'admin', 'admin', '45263321H', 'admin@gmail.com', 'admin', '$2y$10$dGeBIZ1xXm.nNwulyjJO5epxcRCsSbWPDzC8UGOBFtaRnayqB6DbS', 'ADMIN'),
 (14, 'profesor', 'profe', 'profe', '21052025h', 'profesor@gmail.com', 'profesor', '$2y$10$tr6GIbtFchckkS0fhjDPRuJyPaQ68/HuPbE3KR/RWZ8nlC4gO0XMq', 'PROFESOR'),
 (15, 'Alumno', 'alumno', 'alumno', '21058863t', 'alumno@gmail.com', 'alumno', '$2y$10$hNjZ8CMzxQ0G3RpGDP1Qae9uzDG4xRlkvZKGzxTNNVgHVosy7nq3q', 'ALUMNO'),
-(16, 'prueba', 'prueba', 'prueba', '99945858l', 'prueba@gmail.com', 'prueba', '$2y$10$6jP6UucTQO8cVPRs4RjuIeZlZ9ocqUMCYbypwl71cONZjuAwvujvO', 'ALUMNO'),
-(25, 'pruebavideo', 'pruebavideo', 'pruebavideo', '88889888p', 'pruebavideo@gmail.com', 'pruebavideo', '$2y$10$1KX5PcnOmEyVWf5GrzxJ4.0/XPFQSWUkOg3dkpcuSdxLHbCala1im', 'ADMIN'),
-(26, 'pepito', 'pepito', 'pepito', '55026589p', 'pepito@gtmail.com', 'pepito', '$2y$10$wEUNtwZjQD./N222d8ZZ0uhOpeWCDUaNn5OM48sgUo3n8qhLXGuPa', 'ALUMNO');
+(26, 'pepito', 'pepito', 'pepito', '55026589p', 'pepito@gtmail.com', 'pepito', '$2y$10$wEUNtwZjQD./N222d8ZZ0uhOpeWCDUaNn5OM48sgUo3n8qhLXGuPa', 'ADMIN'),
+(28, 'Alejandro', 'Aladro', 'Gonzalez', '21090036w', 'alejandroaladrogonzalez@gmail.com', 'Aaldro', '$2y$10$lgal5pFRazyLU7XXuIE3qOFS9jcK98d3KXo/RfTKxRV7OlWcGd3MK', 'ALUMNO'),
+(33, 'Alejandro', 'Aladro', 'Gonzalez', '21090036w', 'alejandroaladrogonzalez2@gmail.com', 'prueba', '$2y$10$9kGSfajwFHgXLJPAsKPnL.e9BABxP7XMep3fNYKM9IRkCA0ieOK1q', 'ALUMNO'),
+(34, 'prueba', 'prueba', 'prueba', '21090036w', 'prueba2@gmail.com', 'prueba2', '$2y$10$d/UTRq.i2Iv/USxjOrIS8uuMcz9vTfm81mNHDcKhw/0sS8gugfsiO', 'ALUMNO');
 
 --
 -- Índices para tablas volcadas
@@ -509,31 +556,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_EXAMEN` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `historiaalumno`
 --
 ALTER TABLE `historiaalumno`
-  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `ID_HISTORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `ID_PREGUNTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `ID_RESPUESTA` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restricciones para tablas volcadas

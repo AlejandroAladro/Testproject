@@ -645,10 +645,12 @@ $(document).ready(function() {
 
                                 $.post("../php/questions.php", datos, function(data, estado) {
                                     if (estado == "success") {
+                                        var contcheck = 0;
                                         $('#tablepreguntasexam').children('tbody').empty();
 
                                         $.each(data, function(indice, valor) {
-                                            $('#tablepreguntasexam').children('tbody').append("<tr><td>" + valor.ID_PREGUNTA + "</td><td>" + valor.TEXTO_P + "</td><td><div class='form-check'><input class='form-check-input' type='checkbox' value='" + valor.ID_PREGUNTA + "' name='idpreguntas[]'></div></td></tr>");
+                                            $('#tablepreguntasexam').children('tbody').append("<tr><td>" + valor.ID_PREGUNTA + "</td><td>" + valor.TEXTO_P + "</td><td><div class='custom-control custom-checkbox mr-sm-2'><input class='custom-control-input' type='checkbox' value='" + valor.ID_PREGUNTA + "' name='idpreguntas[]' id='customControlcheck"+contcheck+"'><label class='custom-control-label' for='customControlcheck"+contcheck+"'></label></div></td></tr>");
+                                            contcheck++;
                                         })
 
 
@@ -698,6 +700,7 @@ $(document).ready(function() {
                                 $('.table').hide();
                                 $('#formulariopreguntas').hide();
                                 $('#selectfixexamasig').hide();
+                                $('#formularioeditpregunta').hide();
 
                             $.get("../php/cursos.php",function(data,estado){
                                 if(estado=="success"){
